@@ -29,17 +29,9 @@ const IndexPage = () => {
       
         <div className="houseBounds">
           <div className="gable"></div>
-          {/* <div className="gableLeft"></div>
-          <div className="gableRight"></div> */}
           <div className="gablePoint"></div>
-          {/* <div className="vsepperator1"></div> */}
-          {/* <div className="hsepperator1"></div> */}
           <div className="houseBorder"></div>
-
           <div className="content">
-            {/* <div className="leftSection"> */}
-              
-              {/* <div className="hsepperator2"></div> */}
               <div className="navContainer1">
                 <table>
                   <tbody>
@@ -86,16 +78,8 @@ const IndexPage = () => {
                   </tbody>
                 </table>
               </div>
-              {/* <div className="hsepperator3"></div> */}
-            {/* </div> */}
-            
           </div>
-          
-          
         </div>
-        
-        
-        
       </main>
    </> 
   )
