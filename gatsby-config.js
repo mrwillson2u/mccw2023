@@ -6,5 +6,5 @@ module.exports = {
     title: `mccw2023`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-sass`],
 }
