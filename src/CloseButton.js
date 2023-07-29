@@ -11,10 +11,9 @@ const CloseButton = (props) => {
   return (
       
       <div 
-        className="closeContainer"
+        className={`closeContainer${props.className && ' ' + props.className}`}
         onClick={handleClick}>
-        <div className="lowerLeftToUpperRight"></div>
-        <div className="upperLeftToLowerRight"></div>
+        <span className="closeIcon">+</span>
       </div>
     
   )

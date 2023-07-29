@@ -1,0 +1,29 @@
+@use 'sass:math'
+.stepContainer
+    position: absolute
+    width: 100%
+    display: flex
+    justify-content: center
+    z-index: 100
+    bottom: 0
+    margin-bottom: 3vw
+    flex-wrap: nowrap
+    align-items: center
+    
+
+$stepDotSize: 0.5vw
+.singleStep
+    display: absolute
+    width: $stepDotSize
+    height: $stepDotSize
+    background: grey
+    margin: 0.25vw
+    border-radius: math.div($stepDotSize, 2)
+
+.isActive
+    background: black
+
+.stepButtonContainer
+    width: 1.5vw
+    button
+        width: 1.5vw

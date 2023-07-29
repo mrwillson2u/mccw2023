@@ -3,18 +3,22 @@ import './index.sass'
 import './infoOverlay.sass'
 import CloseButton from "./CloseButton"
 
-const InfoOverlay = () => {
-  const [overlayVisible, setOverlayVisible] = useState(true)
+const InfoOverlay = (props) => {
+
+
 
   return (
-      
       <div className="overlayContainer">
-        {overlayVisible && <div className="overlayBack">
+        <div className="overlayBack">
           <CloseButton 
-            onClick={() => setOverlayVisible(false)}
+            className={'upperRight'}
+            onClick={() => props.closeOverlay()}
           />
+          <div className="overlayContent">
+            {props.children}
+          </div>
           
-        </div>}
+        </div> 
       </div>
     
   )

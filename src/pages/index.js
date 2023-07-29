@@ -1,7 +1,8 @@
-import * as React from "react"
+import React, {useState} from "react"
 import "../index.sass"
 import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
+import RSVPOverlay from "../overlays/RSVPOverlay"
 
 const mainButtons = {
   width: "100px",
@@ -20,11 +21,24 @@ const openInNewTab = (url) => {
   window.open(url, "_blank", "noreferrer");
 };
 
-const IndexPage = () => {
+
+const IndexPage = (props) => {
+  const [overlayIsActive, setOverlayIsActive] = useState(false);
+
+
 
   return (
     <>
-      <InfoOverlay/>
+       { overlayIsActive &&
+        <InfoOverlay
+          closeOverlay={() => setOverlayIsActive(false)}
+          overlayContent={RSVPOverlay}
+        >
+          <RSVPOverlay/>
+        </InfoOverlay> 
+
+
+      }
       <main style={mainStyle}>
       
         <div className="houseBounds">
@@ -45,24 +59,25 @@ const IndexPage = () => {
                       </td>
                     </tr>
                     <tr>
-                    <td className="dateCell" rowSpan="3"><h2>October 7, 2023</h2></td>
+                    <td className="dateCell" rowSpan="3"><p>October 7, 2023</p></td>
                     </tr>
                     <tr>
                       <TdButton
                         colSpan="2"
+                        activateOverlay={() => setOverlayIsActive(true)}
                       >
                         <h3>RSVP</h3>
                       </TdButton>
                       <td></td>
                     </tr>
                     <tr>
-                      <TdButton>
-                        <h3>Events</h3>
-                      </TdButton>
                       <TdButton
                         navigateTo={'https://www.zola.com/registry/colinandmadelineoctober7'}
                       >
                         <h3>Registry</h3>
+                      </TdButton>
+                      <TdButton>
+                        <h3>Events</h3>
                       </TdButton>
                     </tr>
                     <tr>
@@ -72,7 +87,7 @@ const IndexPage = () => {
                         <h3>Planning Ahead</h3>
                       </TdButton>
                       <TdButton>
-                        <h3>Registry</h3>
+                        <h3>FAQ</h3>
                       </TdButton>
                     </tr>
                   </tbody>

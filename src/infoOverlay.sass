@@ -2,14 +2,29 @@
     position: absolute
     display: flex
     flex-direction: column
+    // justify-content: center
     align-items: center
     width: 100vw
     height: 100vw
     
 .overlayBack
     position: relative
-    width: 80vw
-    height: 80vh
+    width: 60vw
+    min-height: 60vh
     z-index: 10
     margin-top:10vh
     background: #e2c6b3
+
+.upperRight
+    position: absolute
+    top: 0
+    right: 0
+
+.overlayContent
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-content: center
+    width: auto
+    height: 100%

@@ -10,6 +10,11 @@ const TdButton = (props) => {
   };
   
   const handleClick = () => {
+    console.log("CLICKED!", props.activateOverlay);
+   if(props.activateOverlay) {
+    props.activateOverlay();
+   }
+
     if(props.navigateTo) {
       openInNewTab(props.navigateTo)
     }
@@ -20,7 +25,6 @@ const TdButton = (props) => {
         colSpan={props.colSpan}
         rowSpan={props.rowSpan}
         className={`${ mouseIsOver ? 'hover' : '' }`}
-        // className="hover"
         onMouseOver={() => setMouseIsOver(true)}
         onMouseLeave={() => setMouseIsOver(false)}
         onClick={handleClick}
