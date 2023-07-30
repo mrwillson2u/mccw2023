@@ -4,6 +4,7 @@ import OverlayHeader from "../OverlayHeader"
 import Airtable from 'airtable';
 import StepTracker from "../StepTracker";
 
+
 const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app8UIts4WPB9nbUP');
 // Airtable.configure({
 //   endpointUrl: 'https://api.airtable.com',
@@ -88,8 +89,7 @@ const getGestsGroup = (recId, callback) => {
   });
 }
 
-const RSVPOverlay = () => {
-  console.log('------------->rerender!<---------------');
+const RSVPOverlay = (props) => {
   const [rsvpStep, setRsvpStep] = useState(1);
   const [rsvpValues, setRsvpValues] = useState(
     {
@@ -97,6 +97,7 @@ const RSVPOverlay = () => {
       retrievedNames: [],
       guestsInGroupRecs: [],
       guestData: [],
+      guestGroupID: '',
       isDriving: false,
       musicRequests: '',
       notes: '',
@@ -124,10 +125,8 @@ const RSVPOverlay = () => {
     // console.log('Picked ', guestID);
     getGestsGroup(guestID, (guestRecords) => {
       // setRsvpValues({...rsvpValues, guestsInGroupRecs: guestRecords});
-      console.log('==guestRecords', guestRecords);
       const initialGuestData = [];
       guestRecords.forEach((guestRec) => {
-        console.log('<>=> ', guestRec);
         initialGuestData.push({
           id: guestRec.id,
           record: guestRec,
@@ -137,9 +136,9 @@ const RSVPOverlay = () => {
           dietary_restrictions: ""
         });
       })
-      console.log('initialGuestData', initialGuestData);
       setRsvpValues({
         ...rsvpValues, 
+        guestGroupID: guestRecords[0].get('Guest Group')[0],
         guestData: initialGuestData
       });
       setRsvpStep(3);
@@ -149,10 +148,8 @@ const RSVPOverlay = () => {
 
   const handleGuestDataChange = (event, index) => { 
     const { name, value } = event.target; 
-    console.log('===}', name, value);
     const tempData = rsvpValues;
     tempData.guestData[index][name] = value;
-    console.log('tempData', tempData);
     setRsvpValues({...tempData})
   }
 
@@ -187,6 +184,84 @@ const RSVPOverlay = () => {
     event.preventDefault();
     setRsvpStep(step);
   }
+
+  const handleComplete = () => {
+    props.closeOverlay()
+    props.resetForm();
+  }
+
+  const handleSubmitRsvpData = () => {
+    const guestUpdates = rsvpValues.guestData.map((guest) => {
+
+      return({
+        "id": guest.id,
+        "fields": {
+          "fld6x7Zs3SbmWrmHe": guest.dietary_restrictions,
+          "fld2Q9UHzqViMrwY9": (guest.attending ? "Yes": "No"),
+        }
+      })
+    })
+
+
+
+    console.log('guestUpdates', guestUpdates);
+    base('Guest List').update(
+      guestUpdates, 
+      function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      const emailData = rsvpValues.emails.map((email, index) => {
+        return{
+          "fields": {
+            "fldkAAbUOkoas2zuO": email
+          }
+        }
+      })
+
+      // Push Email data
+      base('tbl1ZxMehJRSk6UtV').create(
+        emailData, 
+        function(err, records) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          
+          const rsvpData = records.map((rec) => {
+            return({
+              "fields": {
+                "fldRujPuZaGRIkgSM": [rsvpValues.guestGroupID],
+                "fldiY1JaSif34U5jP": (rsvpValues.isDriving ? 'selx0wgk67nSpew1l' : 'selnb8lYYgn165xia'),
+                "fldNVy7aoAYVbPuq3": rsvpValues.notes,
+                "fldoC00IZvmsPqvlF": (rsvpValues.needAccomidations ? 'seldihGOXKuZZyCsY' : 'sel0uendvi2DRp1au'),
+                "fldhZXXxmQWYYVfUM": rec.id,
+                'fldEHPkkgyOntKw5P': JSON.stringify(rsvpValues)
+              }
+            })
+          });
+
+              // Push RSVP data
+          base('tblwkLuPKSMYwjKkJ').create(
+            rsvpData, 
+            function(err, records) {
+              if (err) {
+                console.error(err);
+                return;
+              }
+
+              console.log('RSVP successfully sent!');
+              
+            }
+          );
+        }
+      );
+    });
+  }
+
+
   const renderStep = (step) => {
     let output;
     switch(step) {
@@ -232,7 +307,7 @@ const RSVPOverlay = () => {
           <form>
             <p className="rsvpInstructions">
               Great, we have your invitation info here. Can you indicate whether the guest/guests are attending? If necessary, please edit the names as they should appear om the seating card.
-              Please add an email for one or more guests so that we can send updates and info as the big day gets closer!
+              {/* Please add an email for one or more guests so that we can send updates and info as the big day gets closer! */}
             </p>
             {
               rsvpValues.guestData.map((guestData, index) => {
@@ -314,8 +389,8 @@ const RSVPOverlay = () => {
         output = (
           <form>
             <p className='rsvpInstructions'>
-              The venue and surrounding area do not have very good public transportation and there are not a lot of ride sharing options. 
-              We recommend either driving, carpooling, or arranging shared transportation to the area. Please let us know if you plan to rent/drive or whether you need help arranging tranportation. If you do plan on driving, let us know if youd be willing to bring carpoolers.
+              The venue and surrounding area do not have public transportation and there are not a lot of available ride sharing options. 
+              We recommend either driving, carpooling, or pre-arranging shared transportation to the area. Please let us know if you plan to rent/drive or whether you need help arranging tranportation. If you do plan on driving, let us know if youd be willing to bring carpoolers.
             </p>
             <div className='transButtonContainer'>
               <button
@@ -342,37 +417,37 @@ const RSVPOverlay = () => {
         output = (
           <form>
             <p className="rsvpInstructions">
-            Are there any other messages, questions, or notes you'd like to to share along with your RSVP?
+              Are there any messages or questions you'd like to to share along with your RSVP?
             </p>
             
             <textarea name="notes" rows="10" cols="30" value={rsvpValues.notes} onChange={handleGroupDataChange} />
-              
-            <input type="button" value="Continue" onClick={(e) => advanceToStep(e, 7)}/>
-          </form>
-        );
-        break;
-
-      case 7: // Music Requests
-        console.log('step7');
-        output = (
-          <form>
-            <p className="rsvpInstructions">
-              Is there any music you'd like to hear at the recepton? We cant guarantee that we will be able to include everybodys request, but we'll do our best!
-            </p>
-            
-              <textarea name="musicRequests" rows="10" cols="30" value={rsvpValues.musicRequests} onChange={handleGroupDataChange} />
               
             <input type="button" value="Continue" onClick={(e) => advanceToStep(e, 8)}/>
           </form>
         );
         break;
 
+      // case 7: // Music Requests
+      //   console.log('step7');
+      //   output = (
+      //     <form>
+      //       <p className="rsvpInstructions">
+      //         Is there any music you'd like to hear at the recepton? We cant guarantee that we will be able to include everybodys request, but we'll do our best!
+      //       </p>
+            
+      //         <textarea name="musicRequests" rows="10" cols="30" value={rsvpValues.musicRequests} onChange={handleGroupDataChange} />
+              
+      //       <input type="button" value="Continue" onClick={(e) => advanceToStep(e, 8)}/>
+      //     </form>
+      //   );
+      //   break;
+
       case 8: // Email
         // rsvpValues.emails.push('');
         output = (
           <form>
             <p className="rsvpInstructions">
-              Please enter an email so that we can send you a confirmation as well as any updates and reminders as we get closer to the big day.
+              Please enter an email so that we can send you a confirmation, along with any updates or reminders as we get closer to the big day!
             </p>
             <label for='email'>Email </label>
             {rsvpValues.emails.map((email, index) => {
@@ -392,7 +467,7 @@ const RSVPOverlay = () => {
               
             })}
             <input type="button" value="Add an email" onClick={() => setRsvpValues({...rsvpValues, emails: [...rsvpValues.emails, '']})}/>
-            <input className="emailContinueButton" type="button" value="Continue" onClick={(e) => advanceToStep(e, 9)}/>
+            <input className="emailContinueButton" type="button" value="Complete" onClick={(e) => { handleSubmitRsvpData(); advanceToStep(e, 9) }}/>
           </form>
         );
         break;
@@ -418,7 +493,10 @@ const RSVPOverlay = () => {
 
         output = (
           <>
-            <h3>Guests Attending:</h3>
+            <p className="rsvpInstructions">
+              The RSVP is recieved. We are looking forward to seeing you there!
+            </p>
+            {/* <h3>Guests Attending:</h3>
             {rsvpValues.guestData.map((guest) => {
 
                 if(guest.attending) {
@@ -440,7 +518,8 @@ const RSVPOverlay = () => {
                   )
                 }
               })
-            }
+            } */}
+            <button className="rsvpCloseButton" onClick={handleComplete}>Close</button>
           </>
         );
         break;
@@ -459,7 +538,7 @@ const RSVPOverlay = () => {
         {renderStep(rsvpStep)}
       </div>
       <StepTracker 
-        stepCount={9}
+        stepCount={8}
         activeStep={rsvpStep}
         setActiveStep={setRsvpStep}
       />

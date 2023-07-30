@@ -3,6 +3,7 @@ import "../index.sass"
 import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
+import { v4 as uuidv4 } from 'uuid';
 
 const mainButtons = {
   width: "100px",
@@ -24,17 +25,25 @@ const openInNewTab = (url) => {
 
 const IndexPage = (props) => {
   const [overlayIsActive, setOverlayIsActive] = useState(false);
-
-
+  const [rsvpKey, setRsvpKey] = useState(uuidv4());
+  console.log('rsvpKey', rsvpKey);
+  const resetRsvpForm = () => {
+    setRsvpKey(uuidv4());
+    console.log("RESETTING!!!");
+  }
 
   return (
     <>
        { overlayIsActive &&
         <InfoOverlay
+          key={rsvpKey}
           closeOverlay={() => setOverlayIsActive(false)}
           overlayContent={RSVPOverlay}
         >
-          <RSVPOverlay/>
+          <RSVPOverlay
+            closeOverlay={() => setOverlayIsActive(false)}
+            resetForm={resetRsvpForm}
+          />
         </InfoOverlay> 
 
 

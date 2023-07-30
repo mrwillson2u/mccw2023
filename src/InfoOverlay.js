@@ -17,7 +17,6 @@ const InfoOverlay = (props) => {
           <div className="overlayContent">
             {props.children}
           </div>
-          
         </div> 
       </div>
     
