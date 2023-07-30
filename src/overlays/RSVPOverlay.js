@@ -14,7 +14,7 @@ const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app8UIts
 const searchForName = (guestName, callback) => {
   let retrievedNames = [];
   base('Guest List').select({
-    filterByFormula: `FIND('${guestName}', {Name})`
+    filterByFormula: `FIND(LOWER('${guestName}'), LOWER({Name}))`
   }).eachPage(function page(records, fetchNextPage) {
       // This function (`page`) will get called for each page of records.
 
