@@ -32,7 +32,7 @@ const IndexPage = (props) => {
 
   return (
     <>
-       { overlayIsActive &&
+       {/* { overlayIsActive &&
         <InfoOverlay
           key={rsvpKey}
           closeOverlay={() => setOverlayIsActive(false)}
@@ -45,8 +45,8 @@ const IndexPage = (props) => {
         </InfoOverlay> 
 
 
-      }
-      <div className="mainScroll">
+      } */}
+      {/* <div className="mainScroll">
         <main style={mainStyle}>
         
           <div className="houseBounds">
@@ -104,7 +104,7 @@ const IndexPage = (props) => {
             </div>
           </div>
         </main>
-      </div>
+      </div> */}
    </> 
   )
 }
