@@ -23,5 +23,12 @@
     "react-spinners": "^0.13.8",
     "sass": "^1.64.0",
     "uuid": "^8.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrwillson2u/mccw2023"
+  },
+  "bugs": {
+    "url": "https://github.com/mrwillson2u/mccw2023/issues"
   }
 }
