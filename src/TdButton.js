@@ -1,7 +1,9 @@
 import * as React from "react"
-import {useState} from "react"
+// import {useState} from "react"
 import './index.sass'
 import './TdButton.sass'
+
+const useState = React.useState;
 
 const TdButton = (props) => {
 

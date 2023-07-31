@@ -1,8 +1,10 @@
 import * as React from "react"
-import { useEffect, useRef } from "react"
+// import { useEffect, useRef } from "react"
 import './index.sass'
 import './StepTracker.sass'
 
+const useEffect = React.useEffect;
+const useRef = React.useRef;
 
 const StepTracker = (props) => {
   
