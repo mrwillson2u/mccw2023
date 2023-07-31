@@ -9,7 +9,7 @@ import OverlaySpinner from "../OverlaySpinner"
 
 
 const RSVPOverlay = (props) => {
-  const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app8UIts4WPB9nbUP');
+  const base = new Airtable({apiKey: process.env.GATSBY_AIRTABLE_API_KEY}).base('app8UIts4WPB9nbUP');
 
 
   const searchForName = (guestName, callback) => {

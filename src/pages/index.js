@@ -23,9 +23,7 @@ const mainStyle = {
 }
 
 
-const IndexPage = (props) => {
-  console.log('process.env.GATSBY_TEST', process.env.GATSBY_TEST);
-  console.log('process.env.TEST', process.env.TEST);
+const IndexPage = (props) => {\
 
   const [overlayIsActive, setOverlayIsActive] = useState(false);
   const [overlayContent, setOverlayContent] = useState();
