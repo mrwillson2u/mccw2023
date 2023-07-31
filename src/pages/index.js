@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import * as React from "react"
+import {useState} from "react"
 import "../index.sass"
 import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
@@ -17,10 +18,6 @@ const mainStyle = {
   alignItems: "center",
   justifyContent: "center",
 }
-
-const openInNewTab = (url) => {
-  window.open(url, "_blank", "noreferrer");
-};
 
 
 const IndexPage = (props) => {

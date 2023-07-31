@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import * as React from "react"
 import './index.sass'
 import './infoOverlay.sass'
 import CloseButton from "./CloseButton"

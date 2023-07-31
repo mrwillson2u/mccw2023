@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react"
+import * as React from "react"
+import { useState } from "react"
 import './RSVPOverlay.sass'
 import OverlayHeader from "../OverlayHeader"
 import Airtable from 'airtable';

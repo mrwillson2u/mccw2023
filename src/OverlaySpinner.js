@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import * as React from "react"
 import './index.sass'
 import './OverlaySpinner.sass'
 import { SkewLoader } from "react-spinners"
