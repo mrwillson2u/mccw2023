@@ -7,7 +7,7 @@ import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
 
-console.log(process.env.GATSBY_TEST);
+
 const useState = React.useState;
 const mainButtons = {
   width: "100px",
@@ -24,6 +24,9 @@ const mainStyle = {
 
 
 const IndexPage = (props) => {
+  console.log(process.env.GATSBY_TEST);
+  console.log(process.env.TEST);
+
   const [overlayIsActive, setOverlayIsActive] = useState(false);
   const [overlayContent, setOverlayContent] = useState();
   const [rsvpKey, setRsvpKey] = useState(uuidv4());
