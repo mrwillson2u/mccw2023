@@ -23,7 +23,7 @@ const mainStyle = {
 }
 
 
-const IndexPage = (props) => {\
+const IndexPage = (props) => {
 
   const [overlayIsActive, setOverlayIsActive] = useState(false);
   const [overlayContent, setOverlayContent] = useState();
