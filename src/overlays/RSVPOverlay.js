@@ -608,10 +608,10 @@ const RSVPOverlay = (props) => {
   return (
     <>
       
-      <OverlaySpinner 
+      {/* <OverlaySpinner 
         active={spinnerVisible}
-      />
-      {/* <OverlayHeader>
+      /> */}
+      <OverlayHeader>
       <h2>RSVP</h2>
       </OverlayHeader>
       <div className="formContainer">
@@ -621,7 +621,7 @@ const RSVPOverlay = (props) => {
         stepCount={8}
         activeStep={rsvpStep}
         setActiveStep={setRsvpStep}
-      /> */}
+      />
     </>
   )
 }
