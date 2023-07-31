@@ -3,7 +3,8 @@ import './RSVPOverlay.sass'
 import OverlayHeader from "../OverlayHeader"
 import Airtable from 'airtable';
 import StepTracker from "../StepTracker";
-
+import { SkewLoader } from "react-spinners";
+import OverlaySpinner from "../OverlaySpinner"
 
 const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app8UIts4WPB9nbUP');
 // Airtable.configure({
@@ -91,6 +92,8 @@ const getGestsGroup = (recId, callback) => {
 
 const RSVPOverlay = (props) => {
   const [rsvpStep, setRsvpStep] = useState(1);
+  const [emailValid, setEmailValid] = useState([]);
+  const [spinnerVisible, setSpinnerVisible] = useState(false);
   const [rsvpValues, setRsvpValues] = useState(
     {
       searchValue: '',
@@ -112,16 +115,19 @@ const RSVPOverlay = (props) => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     console.log('submitting', rsvpValues.searchValue);
+    setSpinnerVisible(true)
     searchForName(rsvpValues.searchValue, (results) => {
       setRsvpValues({...rsvpValues, retrievedNames: results})
       console.log(`search complete! Found ${results.length} results.`);
+      setSpinnerVisible(false);
       setRsvpStep(2);
-
+      
     });
     
   }
 
   const handleGuestNameSubmit = (guestID) => {
+    setSpinnerVisible(true);
     // console.log('Picked ', guestID);
     getGestsGroup(guestID, (guestRecords) => {
       // setRsvpValues({...rsvpValues, guestsInGroupRecs: guestRecords});
@@ -141,6 +147,7 @@ const RSVPOverlay = (props) => {
         guestGroupID: guestRecords[0].get('Guest Group')[0],
         guestData: initialGuestData
       });
+      setSpinnerVisible(false);
       setRsvpStep(3);
     })
   }
@@ -190,7 +197,50 @@ const RSVPOverlay = (props) => {
     props.resetForm();
   }
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   const handleSubmitRsvpData = () => {
+    console.log('testtt');
+    // Check that emails are valid
+    let allEmailsValid = true;
+    rsvpValues.emails.forEach((email, index) => {
+      let tempArray = emailValid;
+      
+      if(validateEmail(email)) {
+        tempArray[index] = 'valid';
+        setEmailValid(tempArray);
+      }
+      else{
+        tempArray[index] = 'invalid';
+        setEmailValid(tempArray);
+        allEmailsValid = false;
+      }
+    });
+
+    // if(allEmailsValid) {
+      setSpinnerVisible(true);
+      pushRSVPToAirtable();
+    // }
+
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.key);
+    if(e.key === 'Enter') {
+      handleSearchSubmit();
+    }
+  }
+
+  const pushRSVPToAirtable = () => {
+    
+
     const guestUpdates = rsvpValues.guestData.map((guest) => {
 
       return({
@@ -259,6 +309,10 @@ const RSVPOverlay = (props) => {
         }
       );
     });
+    
+    setSpinnerVisible(false);
+    setRsvpStep(9);
+
   }
 
 
@@ -267,44 +321,58 @@ const RSVPOverlay = (props) => {
     switch(step) {
       case 1: // Search for record
         output = (
-          <form>
-            <p className="rsvpInstructions">
-              To look up your invite, please enter the first and last name of an invitee as it appears on the envelope.
-            </p>
-            <label>
-              Name:
-              <input type="text" name="searchValue" value={rsvpValues.searchValue} onChange={handleNameChange} />
-              <input type="button" value="Search" onClick={handleSearchSubmit}/>
-            </label>
-            
-          </form>
+          <>          
+            <form onSubmit={(e) => {
+                // e.preventDefault();
+                console.log(e.key);
+                if(e.key === 'Enter') {
+                  handleSearchSubmit();
+                }
+              }}
+            >
+              <p className="rsvpInstructions">
+                To look up your invite, please enter the first and last name of an invitee as it appears on the envelope.
+              </p>
+              <label>
+                Name:
+                <input type="text" name="searchValue" value={rsvpValues.searchValue} onChange={handleNameChange} />
+                <input type="submit" value="Search" onClick={handleSearchSubmit} />
+              </label>
+              
+            </form>
+            {/* {spinnerVisible && <SkewLoader color="#ff00ea" />} */}
+          </>
+
         );
         break;
       case 2: // Confirm Record
         output = (
-          <form>
-            <p className="rsvpInstructions">
-              Please confirm this is your correct name below.
-            </p>
-            {
-              rsvpValues.retrievedNames.map((result, index) => {
-                const recordName = result.get('Name');
-                return (
-                  <>
-                    <input className="nameButton" type="button" id={recordName} value={recordName} onClick={() => { handleGuestNameSubmit(result.id) } }/>
-                    {/* <label for={recordName}>{recordName}</label> */}
-                  </>
-                )
-              })
-            }
-          </form>
+          <>
+            <form onSubmit={handleFormSubmit}>
+              <p className="rsvpInstructions">
+                Please confirm this is your correct name below.
+              </p>
+              {
+                rsvpValues.retrievedNames.map((result, index) => {
+                  const recordName = result.get('Name');
+                  return (
+                    <>
+                      <input className="nameButton" type="button" id={recordName} value={recordName} onClick={() => { handleGuestNameSubmit(result.id) } }/>
+                      {/* <label for={recordName}>{recordName}</label> */}
+                    </>
+                  )
+                })
+              }
+            </form>
+            {/* {spinnerVisible && <SkewLoader color="#ff00ea" />} */}
+          </>
         );
         break;
 
       case 3: // Confirm Attendance
             console.log('rsvpValues>', rsvpValues);
         output = (
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <p className="rsvpInstructions">
               Great, we have your invitation info here. Can you indicate whether the guest/guests are attending? If necessary, please edit the names as they should appear om the seating card.
               {/* Please add an email for one or more guests so that we can send updates and info as the big day gets closer! */}
@@ -341,8 +409,9 @@ const RSVPOverlay = (props) => {
               })
              
             }
-            <input type="button" value="Continue" onClick={(e) => advanceToStep(e, 4)}/>
+            <input type="submit" value="Continue" onClick={(e) => advanceToStep(e, 4)}/>
           </form>
+          
         );
         break;
 
@@ -455,19 +524,26 @@ const RSVPOverlay = (props) => {
               
               return(
                 <div className="emailContainer">
-                  <input className='emailInput' type="text" name='email' value={email} id='gname' onChange={(e) => handleEmailChange(e, index)}/>
+                  <input className={`emailInput ${emailValid[index]}`} type="text" name='email' value={email} id='gname' onChange={(e) => handleEmailChange(e, index)}/>
                     {(rsvpValues.emails.length > 1) && <input type="button" value="-" onClick={() => {
                         let updatedEmails = rsvpValues.emails;
                         updatedEmails.splice(index, 1);
                         setRsvpValues({...rsvpValues, emails: updatedEmails});
+                        let updatedEmailValid = emailValid;
+                        updatedEmailValid.splice(index, 1);
+                        setEmailValid(updatedEmailValid);
                       }}
                     />}
                 </div>
               )
               
             })}
-            <input type="button" value="Add an email" onClick={() => setRsvpValues({...rsvpValues, emails: [...rsvpValues.emails, '']})}/>
-            <input className="emailContinueButton" type="button" value="Complete" onClick={(e) => { handleSubmitRsvpData(); advanceToStep(e, 9) }}/>
+            <input type="button" value="Add an email" onClick={() => {
+              setRsvpValues({...rsvpValues, emails: [...rsvpValues.emails, '']});
+              setEmailValid([...emailValid, ''])
+            }}
+            />
+            <input className="emailContinueButton" type="button" value="Complete" onClick={(e) => handleSubmitRsvpData()}/>
           </form>
         );
         break;
@@ -531,6 +607,10 @@ const RSVPOverlay = (props) => {
   }
   return (
     <>
+      
+      <OverlaySpinner 
+        active={spinnerVisible}
+      />
       <OverlayHeader>
         <h2>RSVP</h2>
       </OverlayHeader>
