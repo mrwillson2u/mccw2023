@@ -1,37 +1,38 @@
 import * as React from "react"
 // import {useState} from "react"
-import "../index.sass"
-import InfoOverlay from "../InfoOverlay"
-import TdButton from "../TdButton"
-import RSVPOverlay from "../overlays/RSVPOverlay"
-import { v4 as uuidv4 } from 'uuid';
+// import "../index.sass"
+// import InfoOverlay from "../InfoOverlay"
+// import TdButton from "../TdButton"
+// import RSVPOverlay from "../overlays/RSVPOverlay"
+// import { v4 as uuidv4 } from 'uuid';
 
-const useState = React.useState;
-const mainButtons = {
-  width: "100px",
-  height: "70px",
-  margin: "0 100px 0 100px",
-}
+// const useState = React.useState;
+// const mainButtons = {
+//   width: "100px",
+//   height: "70px",
+//   margin: "0 100px 0 100px",
+// }
 
-const mainStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-}
+// const mainStyle = {
+//   display: "flex",
+//   flexDirection: "column",
+//   alignItems: "center",
+//   justifyContent: "center",
+// }
 
 
 const IndexPage = (props) => {
-  const [overlayIsActive, setOverlayIsActive] = useState(false);
-  const [rsvpKey, setRsvpKey] = useState(uuidv4());
-  console.log('rsvpKey', rsvpKey);
-  const resetRsvpForm = () => {
-    setRsvpKey(uuidv4());
-    console.log("RESETTING!!!");
-  }
+  // const [overlayIsActive, setOverlayIsActive] = useState(false);
+  // const [rsvpKey, setRsvpKey] = useState(uuidv4());
+  // console.log('rsvpKey', rsvpKey);
+  // const resetRsvpForm = () => {
+  //   setRsvpKey(uuidv4());
+  //   console.log("RESETTING!!!");
+  // }
 
   return (
     <>
+      <div></div>
        {/* { overlayIsActive &&
         <InfoOverlay
           key={rsvpKey}
