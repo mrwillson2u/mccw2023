@@ -604,7 +604,7 @@ const RSVPOverlay = (props) => {
   return (
     <>
       
-      {/* <OverlaySpinner 
+      <OverlaySpinner 
         active={spinnerVisible}
       />
       <OverlayHeader>
@@ -617,7 +617,7 @@ const RSVPOverlay = (props) => {
         stepCount={8}
         activeStep={rsvpStep}
         setActiveStep={setRsvpStep}
-      /> */}
+      />
     </>
   )
 }
