@@ -15,83 +15,83 @@ const RSVPOverlay = (props) => {
 //   apiKey: process.env.AIRTABLE_API_KEY
 // });
 
-// const searchForName = (guestName, callback) => {
-//   let retrievedNames = [];
-//   base('Guest List').select({
-//     filterByFormula: `FIND(LOWER('${guestName}'), LOWER({Name}))`
-//   }).eachPage(function page(records, fetchNextPage) {
-//       // This function (`page`) will get called for each page of records.
+const searchForName = (guestName, callback) => {
+  let retrievedNames = [];
+  base('Guest List').select({
+    filterByFormula: `FIND(LOWER('${guestName}'), LOWER({Name}))`
+  }).eachPage(function page(records, fetchNextPage) {
+      // This function (`page`) will get called for each page of records.
 
-//       records.forEach(function(record) {
-//           console.log('Retrieved', record.get('Guest Group'));
-//       });
-//       retrievedNames = [...retrievedNames, ...records]
-//       // setRsvpValues({...rsvpValues, foundNames: [...rsvpValues.foundNames, records]})
-//       // To fetch the next page of records, call `fetchNextPage`.
-//       // If there are more records, `page` will get called again.
-//       // If there are no more records, `done` will get called.
+      records.forEach(function(record) {
+          console.log('Retrieved', record.get('Guest Group'));
+      });
+      retrievedNames = [...retrievedNames, ...records]
+      // setRsvpValues({...rsvpValues, foundNames: [...rsvpValues.foundNames, records]})
+      // To fetch the next page of records, call `fetchNextPage`.
+      // If there are more records, `page` will get called again.
+      // If there are no more records, `done` will get called.
       
-//       fetchNextPage();
+      fetchNextPage();
 
-//   }, function done(err) {
-//       if (err) {
-//         console.error(err); 
-//         return;
-//       }
-//       callback(retrievedNames);
-//   });
+  }, function done(err) {
+      if (err) {
+        console.error(err); 
+        return;
+      }
+      callback(retrievedNames);
+  });
 
-// }
+}
 
-// const getGestsGroup = (recId, callback) => {
-//   base('Guest List').find(recId, function(err, record) {
-//     if (err) { console.error(err); return; }
-//     console.log('Retrieved', record.get('Guest Group'));
-//     const groupID = record.get('Guest Group')[0];
-//     if(groupID) {
-//       base('Guest Groups').find(groupID, function(err, record) {
-//         if (err) { console.error(err); return; }
+const getGestsGroup = (recId, callback) => {
+  base('Guest List').find(recId, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log('Retrieved', record.get('Guest Group'));
+    const groupID = record.get('Guest Group')[0];
+    if(groupID) {
+      base('Guest Groups').find(groupID, function(err, record) {
+        if (err) { console.error(err); return; }
 
-//         if(record) {
-//           console.log('Retrieved Group', record.get('Guest/s'));
-//           const guestIDs = record.get('Guest/s');
+        if(record) {
+          console.log('Retrieved Group', record.get('Guest/s'));
+          const guestIDs = record.get('Guest/s');
 
-//           let filterString = "OR(";
-//           let firstID = true;
-//           for(let guestID of guestIDs) {
-//             if(!firstID) {
-//               filterString += ','
-//             }
-//             firstID = false;
-//             console.log('guestID', guestID);
-//             filterString += `RECORD_ID() = '${guestID}'`;
-//           }
-//           filterString += ')';
+          let filterString = "OR(";
+          let firstID = true;
+          for(let guestID of guestIDs) {
+            if(!firstID) {
+              filterString += ','
+            }
+            firstID = false;
+            console.log('guestID', guestID);
+            filterString += `RECORD_ID() = '${guestID}'`;
+          }
+          filterString += ')';
           
-//           let guestInGroupRecs = [];
-//           // console.log('filterString', filterString);
+          let guestInGroupRecs = [];
+          // console.log('filterString', filterString);
 
-//           base('Guest List').select({
-//             filterByFormula: filterString
-//             // sort: [{field: "Name", direction: "desc"}]
-//           }).eachPage(function page(records, fetchNextPage) {
-//             guestInGroupRecs = [...guestInGroupRecs, ...records];
-//             fetchNextPage();
+          base('Guest List').select({
+            filterByFormula: filterString
+            // sort: [{field: "Name", direction: "desc"}]
+          }).eachPage(function page(records, fetchNextPage) {
+            guestInGroupRecs = [...guestInGroupRecs, ...records];
+            fetchNextPage();
 
-//           }, function done(err) {
-//               if (err) {
-//                 console.error(err); 
-//                 return;
-//               }
-//               console.log('guestInGroupRecs', guestInGroupRecs);
-//               callback(guestInGroupRecs);
-//           });
-//         }
-//       });
-//     }
+          }, function done(err) {
+              if (err) {
+                console.error(err); 
+                return;
+              }
+              console.log('guestInGroupRecs', guestInGroupRecs);
+              callback(guestInGroupRecs);
+          });
+        }
+      });
+    }
     
-//   });
-// }
+  });
+}
 //   const [rsvpStep, setRsvpStep] = useState(1);
 //   const [emailValid, setEmailValid] = useState([]);
 //   const [spinnerVisible, setSpinnerVisible] = useState(false);
