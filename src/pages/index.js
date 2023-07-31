@@ -7,7 +7,7 @@ import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
 
-console.log(process.env.TEST);
+console.log(process.env.NODE_ENV);
 const useState = React.useState;
 const mainButtons = {
   width: "100px",
