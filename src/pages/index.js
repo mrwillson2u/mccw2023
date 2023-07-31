@@ -5,6 +5,7 @@ import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
+import UnderConstruction from "../overlays/UnderConstruction"
 
 const useState = React.useState;
 const mainButtons = {
@@ -23,26 +24,32 @@ const mainStyle = {
 
 const IndexPage = (props) => {
   const [overlayIsActive, setOverlayIsActive] = useState(false);
+  const [overlayContent, setOverlayContent] = useState();
   const [rsvpKey, setRsvpKey] = useState(uuidv4());
+
   console.log('rsvpKey', rsvpKey);
   const resetRsvpForm = () => {
     setRsvpKey(uuidv4());
     console.log("RESETTING!!!");
   }
 
+  const activateOverlay = (content) => {
+    console.log('testi');
+    setOverlayContent(content);
+    setOverlayIsActive(true);
+  }
+
   return (
+
     <>
       <div></div>
        { overlayIsActive &&
         <InfoOverlay
           key={rsvpKey}
           closeOverlay={() => setOverlayIsActive(false)}
-          overlayContent={RSVPOverlay}
+          resetForm={resetRsvpForm}
         >
-          <RSVPOverlay
-            closeOverlay={() => setOverlayIsActive(false)}
-            resetForm={resetRsvpForm}
-          />
+          {overlayContent}
         </InfoOverlay> 
 
 
@@ -73,7 +80,7 @@ const IndexPage = (props) => {
                       <tr>
                         <TdButton
                           colSpan="2"
-                          activateOverlay={() => setOverlayIsActive(true)}
+                          activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
                         >
                           <h3>RSVP</h3>
                         </TdButton>
@@ -85,17 +92,22 @@ const IndexPage = (props) => {
                         >
                           <h3>Registry</h3>
                         </TdButton>
-                        <TdButton>
+                        <TdButton
+                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                        >
                           <h3>Events</h3>
                         </TdButton>
                       </tr>
                       <tr>
                         <TdButton
                           colSpan="2"
+                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
                         >
                           <h3>Planning Ahead</h3>
                         </TdButton>
-                        <TdButton>
+                        <TdButton
+                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                        >
                           <h3>FAQ</h3>
                         </TdButton>
                       </tr>

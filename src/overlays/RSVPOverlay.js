@@ -278,22 +278,20 @@ const RSVPOverlay = (props) => {
             return;
           }
           
-          const rsvpData = records.map((rec) => {
-            return({
+          const emailArray = records.map((rec) => rec.id );
+          console.log('emailArray', emailArray);
+
+              // Push RSVP data
+          base('tblwkLuPKSMYwjKkJ').create([{
               "fields": {
                 "fldRujPuZaGRIkgSM": [rsvpValues.guestGroupID],
                 "fldiY1JaSif34U5jP": (rsvpValues.isDriving ? 'selx0wgk67nSpew1l' : 'selnb8lYYgn165xia'),
                 "fldNVy7aoAYVbPuq3": rsvpValues.notes,
                 "fldoC00IZvmsPqvlF": (rsvpValues.needAccomidations ? 'seldihGOXKuZZyCsY' : 'sel0uendvi2DRp1au'),
-                "fldhZXXxmQWYYVfUM": rec.id,
+                "fldhZXXxmQWYYVfUM": emailArray,
                 'fldEHPkkgyOntKw5P': JSON.stringify(rsvpValues)
               }
-            })
-          });
-
-              // Push RSVP data
-          base('tblwkLuPKSMYwjKkJ').create(
-            rsvpData, 
+            }], 
             function(err, records) {
               if (err) {
                 console.error(err);

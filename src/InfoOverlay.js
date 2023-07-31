@@ -15,7 +15,12 @@ const InfoOverlay = (props) => {
             onClick={() => props.closeOverlay()}
           />
           <div className="overlayContent">
-            {props.children}
+            {React.Children.map(props.children, (child) => {
+              return React.cloneElement(child, {
+                closeOverlay: props.closeOverlay,
+                resetForm: props.resetForm
+              })
+            })}
           </div>
         </div> 
       </div>
