@@ -34,7 +34,7 @@ const IndexPage = (props) => {
       return(
         <table>
           <tbody>
-            <tr className="tallRow">
+            <tr>
               <td colSpan={2}>
                 <div className="titleBox">
                   <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
@@ -98,13 +98,6 @@ const IndexPage = (props) => {
             <tr className="tallRow">
               <td></td>
               <td></td>
-              {/* <td className='titleCell' colSpan="2" rowSpan="1" >
-                <div className="titleBox">
-                  <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
-                  <h3 className="titleSub">and</h3>
-                  <h1 className="titleName">Colin James<br/>Willson</h1>
-                </div>
-              </td> */}
             </tr>
             <tr className="shortRow">
               <td colSpan={2}>
@@ -114,8 +107,6 @@ const IndexPage = (props) => {
                   <h1 className="titleName">Colin James<br/>Willson</h1>
                 </div>
               </td>
-              
-              
             <td className="dateCell">
               <p>October 7, 2023</p>
             </td>

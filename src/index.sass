@@ -12,8 +12,14 @@
     font-family: 'Alegreya'
     src: local('Alegreya'), url('./fonts/Alegreya-Regular.ttf') format('ttf')
 
-$line-width-heavy: 1vw
-$line-width-light: 0.25vw
+
+$line-width-heavy: 1vw !default
+$line-width-light: 0.25vw !default
+
+@media (min-width: 100px)
+    $line-width-heavy: 3vw !global
+    $line-width-light: 1vw !global
+
 
 
 body 
@@ -21,7 +27,6 @@ body
     margin: 0
 
 main
-    
     display: flex
     flex-direction: column
     align-items: center
@@ -305,7 +310,31 @@ $gable-width: 61.35vw
         tr:nth-child(2) td:nth-child(1)
             border: 0
             border-right: $line-width-heavy solid black
-            
+
+    @media (min-width: 100px)
+        table
+            position: relative
+            width: 100%
+            height: 100%
+            top: 20vw
+            // border: $line-width-light solid black
+            border-collapse: collapse
+            td
+                text-align: center
+                border: $line-width-light solid black
+                width: 50%
+            tr
+                height: 25vw
+
+            tr:nth-child(2) td:nth-child(1)
+                border: $line-width-heavy solid black
+                border-bottom: $line-width-light solid black
+            tr:nth-child(5) td:nth-child(1)
+                border-top: $line-width-light solid black
+            tr:nth-child(3) td:nth-child(1)
+                border-right: $line-width-light solid black
+                border-top: $line-width-light solid black
+
     .navRow
         position: relative
         display: flex
@@ -321,6 +350,7 @@ $gable-width: 61.35vw
         width: 100%
         height: 10vw
         text-align: center
+
 
 .dateCell
     position: relative
@@ -345,3 +375,5 @@ $gable-width: 61.35vw
     background-position: center center
     background-attachment: fixed
     
+
+
