@@ -9,19 +9,6 @@ import UnderConstruction from "../overlays/UnderConstruction"
 
 
 const useState = React.useState;
-const mainButtons = {
-  width: "100px",
-  height: "70px",
-  margin: "0 100px 0 100px",
-}
-
-const mainStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-}
-
 
 const IndexPage = (props) => {
 
@@ -57,7 +44,7 @@ const IndexPage = (props) => {
 
       }
       <div className="mainScroll">
-        <main style={mainStyle}>
+        <main>
         
           <div className="houseBounds">
             <div className="gable"></div>
@@ -67,17 +54,30 @@ const IndexPage = (props) => {
                 <div className="navContainer1">
                   <table>
                     <tbody>
-                      <tr>
-                        <td colSpan="2" rowSpan="2" >
-                        <div className="titleBox">
-                          <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
-                          <h3 className="titleSub">and</h3>
-                          <h1 className="titleName">Colin James<br/>Willson</h1>
-                        </div>
-                        </td>
+                      <tr className="tallRow">
+                        <td></td>
+                        <td></td>
+                        {/* <td className='titleCell' colSpan="2" rowSpan="1" >
+                          <div className="titleBox">
+                            <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                            <h3 className="titleSub">and</h3>
+                            <h1 className="titleName">Colin James<br/>Willson</h1>
+                          </div>
+                        </td> */}
                       </tr>
-                      <tr>
-                      <td className="dateCell" rowSpan="3"><p>October 7, 2023</p></td>
+                      <tr className="shortRow">
+                        <td colSpan={2}>
+                          <div className="titleBox">
+                            <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                            <h3 className="titleSub">and</h3>
+                            <h1 className="titleName">Colin James<br/>Willson</h1>
+                          </div>
+                        </td>
+                        
+                        
+                      <td className="dateCell">
+                        <p>October 7, 2023</p>
+                      </td>
                       </tr>
                       <tr>
                         <TdButton
