@@ -16,7 +16,7 @@
 $line-width-heavy: 1vw !default
 $line-width-light: 0.25vw !default
 
-@media (min-width: 100px)
+@media (max-width: 640px)
     $line-width-heavy: 3vw !global
     $line-width-light: 1vw !global
 
@@ -53,6 +53,9 @@ h3
     font-size: 3vw
     margin: 0
 
+    @media (max-width: 640px)
+        font-size: 8vw
+
 
 
 
@@ -70,7 +73,11 @@ h3
     border: none
     border-radius: 35px
 
-$gable-width: 61.35vw
+$gable-width: 61.35vw !default
+
+@media (max-width: 640px)
+    $gable-width: 59.47vw !global
+
 .gable
     position: relative
     border-top: $line-width-heavy solid black
@@ -139,10 +146,22 @@ $gable-width: 61.35vw
 
 .titleBox 
     position: absolute
+
     // width: 100%
     margin-top: -21vw
     right: 0
     // bottom: 0
+
+    @media (max-width: 640px)
+        position: relative
+        display: flex
+        flex-direction: column
+        width: 40vw
+        position: relative
+        top: 10vw
+        // margin-top: 0
+        // right: auto
+        
 
 
 .titleName
@@ -238,6 +257,17 @@ $gable-width: 61.35vw
         .titleCell
             position: relative
             height: 10vw
+            width: 100%
+            @media (max-width: 640px)
+                // display: flex
+                // justify-content: center
+                .titleCont
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+
 
         .shortRow
             border-left: $line-width-heavy solid black
@@ -311,12 +341,12 @@ $gable-width: 61.35vw
             border: 0
             border-right: $line-width-heavy solid black
 
-    @media (min-width: 100px)
+    @media (max-width: 640px)
         table
             position: relative
             width: 100%
             height: 100%
-            top: 20vw
+            top: 19.7vw
             // border: $line-width-light solid black
             border-collapse: collapse
             td

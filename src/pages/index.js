@@ -35,11 +35,13 @@ const IndexPage = (props) => {
         <table>
           <tbody>
             <tr>
-              <td colSpan={2}>
-                <div className="titleBox">
-                  <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
-                  <h3 className="titleSub">and</h3>
-                  <h1 className="titleName">Colin James<br/>Willson</h1>
+              <td colSpan="2" className="titleCell">
+                <div className="titleCont">
+                  <div className="titleBox">
+                    <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                    <h3 className="titleSub">and</h3>
+                    <h1 className="titleName">Colin James<br/>Willson</h1>
+                  </div>
                 </div>
               </td>
             </tr>
