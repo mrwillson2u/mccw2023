@@ -6,7 +6,7 @@ import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
-
+import useBreakpoints from "../useBreakpoint"
 
 const useState = React.useState;
 
@@ -16,16 +16,147 @@ const IndexPage = (props) => {
   const [overlayContent, setOverlayContent] = useState();
   const [rsvpKey, setRsvpKey] = useState(uuidv4());
 
+  const { isXs } = useBreakpoints()
+
   console.log('rsvpKey', rsvpKey);
   const resetRsvpForm = () => {
     setRsvpKey(uuidv4());
-    console.log("RESETTING!!!");
   }
 
   const activateOverlay = (content) => {
     console.log('testi');
     setOverlayContent(content);
     setOverlayIsActive(true);
+  }
+
+  const navTable = () => {
+    if(isXs) {
+      return(
+        <table>
+          <tbody>
+            <tr className="tallRow">
+              <td colSpan={2}>
+                <div className="titleBox">
+                  <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                  <h3 className="titleSub">and</h3>
+                  <h1 className="titleName">Colin James<br/>Willson</h1>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <TdButton
+                  colSpan="2"
+                  activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+                >
+                  <h3>RSVP</h3>
+              </TdButton>
+            </tr>
+            <tr>
+            <TdButton
+                  activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+                >
+                  <h3>Events</h3>
+              </TdButton>
+              <TdButton
+                  activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+                >
+                  <h3>Registry</h3>
+              </TdButton>
+            </tr>
+            <tr>
+              <TdButton
+                colSpan="2"
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>Events</h3>
+              </TdButton>
+            </tr>
+            <tr>
+              <TdButton
+                colSpan="2"
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>Planning Ahead</h3>
+              </TdButton>
+            </tr>
+            <tr>
+            <TdButton
+                colSpan="2"
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>FAQ</h3>
+              </TdButton>
+            </tr>
+          </tbody>
+        </table>
+      )
+    }
+    else {
+      return(
+        <table>
+          <tbody>
+            <tr className="tallRow">
+              <td></td>
+              <td></td>
+              {/* <td className='titleCell' colSpan="2" rowSpan="1" >
+                <div className="titleBox">
+                  <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                  <h3 className="titleSub">and</h3>
+                  <h1 className="titleName">Colin James<br/>Willson</h1>
+                </div>
+              </td> */}
+            </tr>
+            <tr className="shortRow">
+              <td colSpan={2}>
+                <div className="titleBox">
+                  <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
+                  <h3 className="titleSub">and</h3>
+                  <h1 className="titleName">Colin James<br/>Willson</h1>
+                </div>
+              </td>
+              
+              
+            <td className="dateCell">
+              <p>October 7, 2023</p>
+            </td>
+            </tr>
+            <tr>
+              <TdButton
+                colSpan="2"
+                activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+              >
+                <h3>RSVP</h3>
+              </TdButton>
+              <td></td>
+            </tr>
+            <tr>
+              <TdButton
+                navigateTo={'https://www.zola.com/registry/colinandmadelineoctober7'}
+              >
+                <h3>Registry</h3>
+              </TdButton>
+              <TdButton
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>Events</h3>
+              </TdButton>
+            </tr>
+            <tr>
+              <TdButton
+                colSpan="2"
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>Planning Ahead</h3>
+              </TdButton>
+              <TdButton
+                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+              >
+                <h3>FAQ</h3>
+              </TdButton>
+            </tr>
+          </tbody>
+        </table>
+      )}
   }
 
   return (
@@ -52,69 +183,7 @@ const IndexPage = (props) => {
             <div className="houseBorder"></div>
             <div className="content">
                 <div className="navContainer1">
-                  <table>
-                    <tbody>
-                      <tr className="tallRow">
-                        <td></td>
-                        <td></td>
-                        {/* <td className='titleCell' colSpan="2" rowSpan="1" >
-                          <div className="titleBox">
-                            <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
-                            <h3 className="titleSub">and</h3>
-                            <h1 className="titleName">Colin James<br/>Willson</h1>
-                          </div>
-                        </td> */}
-                      </tr>
-                      <tr className="shortRow">
-                        <td colSpan={2}>
-                          <div className="titleBox">
-                            <h1 className="titleName">Madeline Rose<br/>Cunningham</h1>
-                            <h3 className="titleSub">and</h3>
-                            <h1 className="titleName">Colin James<br/>Willson</h1>
-                          </div>
-                        </td>
-                        
-                        
-                      <td className="dateCell">
-                        <p>October 7, 2023</p>
-                      </td>
-                      </tr>
-                      <tr>
-                        <TdButton
-                          colSpan="2"
-                          activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
-                        >
-                          <h3>RSVP</h3>
-                        </TdButton>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <TdButton
-                          navigateTo={'https://www.zola.com/registry/colinandmadelineoctober7'}
-                        >
-                          <h3>Registry</h3>
-                        </TdButton>
-                        <TdButton
-                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
-                        >
-                          <h3>Events</h3>
-                        </TdButton>
-                      </tr>
-                      <tr>
-                        <TdButton
-                          colSpan="2"
-                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
-                        >
-                          <h3>Planning Ahead</h3>
-                        </TdButton>
-                        <TdButton
-                          activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
-                        >
-                          <h3>FAQ</h3>
-                        </TdButton>
-                      </tr>
-                    </tbody>
-                  </table>
+                {navTable()}
                 </div>
             </div>
           </div>
