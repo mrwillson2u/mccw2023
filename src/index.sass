@@ -39,6 +39,9 @@ h1
     font-weight: 10
     text-align: right
     margin: 0
+    @media (max-width: 640px)
+        font-size: 6vw
+
 .dateCell
     p 
         font-family: 'Alegreya'
@@ -162,7 +165,7 @@ $gable-width-sm-screen: 59.47vw
         flex-direction: column
         width: 40vw
         position: relative
-        top: 10vw
+        top: 16vw
         // margin-top: 0
         // right: auto
         
@@ -375,8 +378,8 @@ $gable-width-sm-screen: 59.47vw
         tr:nth-child(1) td:nth-child(2)
             border: 0
             border-right: $line-width-heavy solid black
-            @media (max-width: 640px)
-                border-right: $line-width-heavy-smscreen solid black
+            // @media (max-width: 640px)
+            //     border-right: $line-width-heavy-smscreen solid black
         tr:nth-child(2) td:nth-child(1)
             border: 0
             border-right: $line-width-heavy solid black
@@ -388,32 +391,32 @@ $gable-width-sm-screen: 59.47vw
             position: relative
             width: 100%
             height: 100%
-            top: 19.7vw
+            top: 18.6vw
             // border: $line-width-light solid black
             border-collapse: collapse
             td
                 text-align: center
-                border: $line-width-light solid black
-                @media (max-width: 640px)
-                    border: $line-width-light-smscreen solid black
+                border: $line-width-light-smscreen solid black
                 width: 50%
             tr
                 height: 25vw
 
-            tr:nth-child(2) td:nth-child(1)
-                border: $line-width-heavy solid black
-                border-bottom: $line-width-light solid black
-                @media (max-width: 640px)
+            tr:nth-child(2) 
+                height: 12vw
+                
+                td:nth-child(1)
+                    height: 2vw
                     border: $line-width-heavy-smscreen solid black
+                    border-top: 0
                     border-bottom: $line-width-light-smscreen solid black
             tr:nth-child(5) td:nth-child(1)
-                border-top: $line-width-light solid black
+                border-top: $line-width-light-smscreen solid black
                 
             tr:nth-child(3) td:nth-child(1)
-                border-right: $line-width-light solid black
-                border-top: $line-width-light solid black
-                @media (max-width: 640px)
-                    border-right: $line-width-light-smscreen solid black
+                border-right: $line-width-light-smscreen solid black
+                border-left: $line-width-heavy-smscreen solid black
+                // border-top: $line-width-light-smscreen solid black
+
 
     .navRow
         position: relative

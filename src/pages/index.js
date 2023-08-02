@@ -31,6 +31,7 @@ const IndexPage = (props) => {
 
   const navTable = () => {
     if(isXs) {
+      // Mobile Version
       return(
         <table>
           <tbody>
@@ -44,6 +45,9 @@ const IndexPage = (props) => {
                   </div>
                 </div>
               </td>
+            </tr>
+            <tr>
+              <td colSpan={2}></td>
             </tr>
             <tr>
               <TdButton
@@ -94,6 +98,7 @@ const IndexPage = (props) => {
       )
     }
     else {
+      // Desktop Version
       return(
         <table>
           <tbody>
