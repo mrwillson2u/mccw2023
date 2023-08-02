@@ -424,7 +424,7 @@ const RSVPOverlay = (props) => {
               })
              
             }
-            <input type="submit" value="Continue" onClick={(e) => handleAttendanceCheck(4, 10)}/>
+            <input className='submitButton' type="submit" value="Continue" onClick={(e) => handleAttendanceCheck(4, 10)}/>
           </form>
           
         );
