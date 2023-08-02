@@ -15,7 +15,8 @@ const RSVPOverlay = (props) => {
   const searchForName = (guestName, callback) => {
     let retrievedNames = [];
     base('Guest List').select({
-      filterByFormula: `FIND(LOWER('${guestName}'), LOWER({Name}))`
+      filterByFormula: `FIND(LOWER('${guestName}'), LOWER({Name}))`,
+      view: 'viw80DiHPXDf4Sxy6'
     }).eachPage(function page(records, fetchNextPage) {
         // This function (`page`) will get called for each page of records.
 
@@ -69,7 +70,8 @@ const RSVPOverlay = (props) => {
             // console.log('filterString', filterString);
 
             base('Guest List').select({
-              filterByFormula: filterString
+              filterByFormula: filterString,
+              view: 'viw80DiHPXDf4Sxy6'
               // sort: [{field: "Name", direction: "desc"}]
             }).eachPage(function page(records, fetchNextPage) {
               guestInGroupRecs = [...guestInGroupRecs, ...records];
