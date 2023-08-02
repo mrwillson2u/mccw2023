@@ -17,10 +17,12 @@
   "dependencies": {
     "airtable": "^0.12.1",
     "gatsby": "^5.9.0",
+    "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-gatsby-cloud": "^5.11.0",
     "gatsby-plugin-sass": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-spinners": "^0.13.8",
     "sass": "^1.64.0",
     "uuid": "^8.3.2"
