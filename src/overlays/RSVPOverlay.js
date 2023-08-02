@@ -9,8 +9,8 @@ import OverlaySpinner from "../OverlaySpinner"
 
 
 const RSVPOverlay = (props) => {
+  console.log('api key test', process.env.TEST);
   const base = new Airtable({apiKey: process.env.GATSBY_AIRTABLE_API_KEY}).base('app8UIts4WPB9nbUP');
-
 
   const searchForName = (guestName, callback) => {
     let retrievedNames = [];
@@ -204,7 +204,6 @@ const RSVPOverlay = (props) => {
   };
 
   const handleSubmitRsvpData = () => {
-    console.log('testtt');
     // Check that emails are valid
     let allEmailsValid = true;
     rsvpValues.emails.forEach((email, index) => {
@@ -234,6 +233,29 @@ const RSVPOverlay = (props) => {
     if(e.key === 'Enter') {
       handleSearchSubmit();
     }
+  }
+
+  const handleAttendanceCheck = (nextStep, notAttendingStep) => {
+    let aGuestIsAttending = false;
+    for(let guest in rsvpValues.guestData) {
+      console.log('guestIsAttennding', guest.attending);
+      if(guest.attending) {
+        aGuestIsAttending = true;
+        break;
+      }
+    }
+    if(aGuestIsAttending) {
+      setRsvpStep(nextStep);
+    }
+    else {
+      setRsvpStep(notAttendingStep);
+    }
+  }
+
+  const handleNotAttending = () =>{
+    setSpinnerVisible(true);
+    pushRSVPToAirtable();
+
   }
 
   const pushRSVPToAirtable = () => {
@@ -385,27 +407,12 @@ const RSVPOverlay = (props) => {
                       <input type="text" name='guest_name' value={rsvpValues.guestData[index].guest_name} id='gname' onChange={(e) => handleGuestDataChange(e, index)} readOnly={true} />
                       {/* <h4>{rsvpValues.guestData[index].guest_name}</h4> */}
                       </div>
-                    {/* {rsvpValues.guestData[index].attending && 
-                      <>
-                        <div>
-                          <label for='email'>email </label>
-                          <input type="text" name='email' value={rsvpValues.guestData[index].email} id='gname' onChange={(e) => handleGuestDataChange(e, index)}/>
-                        </div>
-                        <div>
-                          <label for='drestrict'>Dietary restrictions:</label>
-                          <input type="text" name='dietary_restrictions' value={rsvpValues.guestData[index].dietary_restrictions} id='drestrict' onChange={(e) => handleGuestDataChange(e, index)} />
-                        </div>
-                        
-                      </>
-                     */}
-                    
-
                   </>
                 )
               })
              
             }
-            <input type="submit" value="Continue" onClick={(e) => advanceToStep(e, 4)}/>
+            <input type="submit" value="Continue" onClick={(e) => handleAttendanceCheck(4, 10)}/>
           </form>
           
         );
@@ -476,7 +483,7 @@ const RSVPOverlay = (props) => {
           </form>
         );
         break;
-      case 6: // Accomidations
+      case 6: // Notes
         console.log('step6');
 
         output = (
@@ -595,6 +602,36 @@ const RSVPOverlay = (props) => {
           </>
         );
         break;
+
+      case 10: // Sorry you cant join
+        console.log('step10');
+
+        output = (
+          <>
+            <p className="rsvpInstructions">
+              It looks like all the guests in your party are marked as not attending. If this is true, we're sorry to hear that!
+              Feel free to write an optional message, then please confirm by clicking the button below so we can plan accordingly.
+            </p>
+
+            <textarea name="notes" rows="10" cols="30" value={rsvpValues.notes} onChange={handleGroupDataChange} />
+              
+            <button className="rsvpNotAttendingConfirmation" onClick={handleNotAttending}>Confirm</button>
+          </>
+        );
+        break;
+      // case 10: // Sorry you cant join
+      //   console.log('step10');
+
+      //   output = (
+      //     <>
+      //       <p className="rsvpInstructions">
+      //         It looks like all the guests in your party are marked as not attending. If this is true, we're sorry to hear that!
+      //         Please confirm by clicking the button below so we can plan accordingly.
+      //       </p>
+      //       <button className="rsvpNotAttendingConfirmation" onClick={handleNotAttending}>Confirm</button>
+      //     </>
+      //   );
+      //   break;
     }
 
     return output;

@@ -1,9 +1,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+console.log('in gatsby config', `.env.${process.env.TEST}`);
 module.exports = {
   siteMetadata: {
     title: `mccw2023`,

@@ -10,7 +10,6 @@ import useBreakpoints from "../useBreakpoint"
 const useState = React.useState;
 
 const IndexPage = (props) => {
-
   const [overlayIsActive, setOverlayIsActive] = useState(false);
   const [overlayContent, setOverlayContent] = useState();
   const [rsvpKey, setRsvpKey] = useState(uuidv4());
