@@ -129,6 +129,7 @@ const IndexPage = (props) => {
               >
                 <h3>Events</h3>
               </TdButton>
+              <td></td>
             </tr>
             <tr>
               <TdButton
