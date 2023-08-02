@@ -1,6 +1,5 @@
 import * as React from "react"
 // import {useState} from "react"
-import "../index.sass"
 import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
