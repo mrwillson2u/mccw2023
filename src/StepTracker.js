@@ -40,7 +40,9 @@ const StepTracker = (props) => {
         <div className="stepButtonContainer">
           <button onClick={() => handleButtonNav(-1)} hidden={ props.activeStep === 1 } >&#60;</button>
         </div>
-          {steps}
+          {/* <div className="stepIndicatorContainer"> */}
+            {steps}
+          {/* </div> */}
         <div className="stepButtonContainer">
           <button onClick={() => handleButtonNav(+1)} hidden={ !(furthestStepReached.current > props.activeStep) }>&#62;</button>
         </div>

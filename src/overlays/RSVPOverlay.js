@@ -90,6 +90,7 @@ const RSVPOverlay = (props) => {
     });
   }
   const [rsvpStep, setRsvpStep] = useState(1);
+  const [stepTrackerActive, setStepTrackerActive] = useState(true);
   const [emailValid, setEmailValid] = useState([]);
   const [spinnerVisible, setSpinnerVisible] = useState(false);
   const [rsvpValues, setRsvpValues] = useState(
@@ -103,7 +104,8 @@ const RSVPOverlay = (props) => {
       musicRequests: '',
       notes: '',
       needAccomidations: false,
-      emails: ['']
+      emails: [''],
+      isAttending: false
     }
   );
 
@@ -237,17 +239,21 @@ const RSVPOverlay = (props) => {
 
   const handleAttendanceCheck = (nextStep, notAttendingStep) => {
     let aGuestIsAttending = false;
-    for(let guest in rsvpValues.guestData) {
+    for(let guest of rsvpValues.guestData) {
       console.log('guestIsAttennding', guest.attending);
       if(guest.attending) {
         aGuestIsAttending = true;
         break;
       }
     }
+
     if(aGuestIsAttending) {
+      setRsvpValues({...rsvpValues, isAttending: true});
       setRsvpStep(nextStep);
     }
     else {
+      setRsvpValues({...rsvpValues, isAttending: false});
+      setStepTrackerActive(false);
       setRsvpStep(notAttendingStep);
     }
   }
@@ -256,6 +262,12 @@ const RSVPOverlay = (props) => {
     setSpinnerVisible(true);
     pushRSVPToAirtable();
 
+  }
+
+  const handleNotAttendingBack = () => {
+    // console.log('handleNotAttendingBack', step);
+    setStepTrackerActive(true);
+    setRsvpStep(3);
   }
 
   const pushRSVPToAirtable = () => {
@@ -573,31 +585,8 @@ const RSVPOverlay = (props) => {
         output = (
           <>
             <p className="rsvpInstructions">
-              The RSVP is recieved. We are looking forward to seeing you there!
+              The RSVP is recieved. {rsvpValues.isAttending ? `We are looking forward to seeing you there!` : `We're sorry to hear you can't make it.`} 
             </p>
-            {/* <h3>Guests Attending:</h3>
-            {rsvpValues.guestData.map((guest) => {
-
-                if(guest.attending) {
-                  return (
-                    <>
-                      <h4>{guest.guest_name}</h4>
-                      
-                      <p><b>Email:</b> {guest.email ? guest.email : 'Not provided'}</p>
-                      <p><b>Dietary Restrictions:</b> {guest.dietary_restrictions ? guest.dietary_restrictions : 'None'}</p>
-                    </>
-                  )
-                }
-                else {
-                  return (
-                    <>
-                      <h4>{guest.guest_name}</h4> 
-                      <p>Not Attending</p>
-                    </>
-                  )
-                }
-              })
-            } */}
             <button className="rsvpCloseButton" onClick={handleComplete}>Close</button>
           </>
         );
@@ -613,25 +602,28 @@ const RSVPOverlay = (props) => {
               Feel free to write an optional message, then please confirm by clicking the button below so we can plan accordingly.
             </p>
 
-            <textarea name="notes" rows="10" cols="30" value={rsvpValues.notes} onChange={handleGroupDataChange} />
-              
+            <textarea className="notAttendingNote" name="notes" rows="10" cols="30" value={rsvpValues.notes} onChange={handleGroupDataChange} />
+            <div className="notAttendingButtons">
+              <button className="rsvpNotAttendingback" onClick={(handleNotAttendingBack)}>Back</button>
+              <button className="rsvpNotAttendingConfirmation" onClick={handleNotAttending}>Confirm</button>
+            </div>
+            
+          </>
+        );
+        break;
+      case 10: // Sorry you cant join
+        console.log('step10');
+
+        output = (
+          <>
+            <p className="rsvpInstructions">
+              It looks like all the guests in your party are marked as not attending. If this is true, we're sorry to hear that!
+              Please confirm by clicking the button below so we can plan accordingly.
+            </p>
             <button className="rsvpNotAttendingConfirmation" onClick={handleNotAttending}>Confirm</button>
           </>
         );
         break;
-      // case 10: // Sorry you cant join
-      //   console.log('step10');
-
-      //   output = (
-      //     <>
-      //       <p className="rsvpInstructions">
-      //         It looks like all the guests in your party are marked as not attending. If this is true, we're sorry to hear that!
-      //         Please confirm by clicking the button below so we can plan accordingly.
-      //       </p>
-      //       <button className="rsvpNotAttendingConfirmation" onClick={handleNotAttending}>Confirm</button>
-      //     </>
-      //   );
-      //   break;
     }
 
     return output;
@@ -648,11 +640,12 @@ const RSVPOverlay = (props) => {
       <div className="formContainer">
         {renderStep(rsvpStep)}
       </div>
-      <StepTracker 
+      {stepTrackerActive && <StepTracker 
         stepCount={8}
         activeStep={rsvpStep}
         setActiveStep={setRsvpStep}
-      />
+      />}
+      
     </>
   )
 }
