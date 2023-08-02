@@ -6,17 +6,24 @@ import { useEffect, useState } from "react";
  * Inspired by https://usehooks.com/useMedia/
  * https://gist.github.com/gragland/ed8cac563f5df71d78f4a1fefa8c5633
  */
+let queryRecieved = false;
 export default function useMediaQuery(query) {
+  
   const [matches, setMatches] = useState(false);
+  
   useEffect(
     () => {
+      console.log('media request');
       const mediaQuery = window.matchMedia(query);
       setMatches(mediaQuery.matches);
       const handler = (event) => setMatches(event.matches);
       mediaQuery.addEventListener("change", handler);
+      queryRecieved = true;
       return () => mediaQuery.removeEventListener("change", handler);
     },
     [] // Empty array ensures effect is only run on mount and unmount
   );
   return matches;
 }
+
+export { queryRecieved }

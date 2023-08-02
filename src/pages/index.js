@@ -1,11 +1,11 @@
 import * as React from "react"
 // import {useState} from "react"
+import useBreakpoints, { queryRecieved } from "../useBreakpoint"
 import InfoOverlay from "../InfoOverlay"
 import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
-import useBreakpoints from "../useBreakpoint"
 
 const useState = React.useState;
 
@@ -14,7 +14,9 @@ const IndexPage = (props) => {
   const [overlayContent, setOverlayContent] = useState();
   const [rsvpKey, setRsvpKey] = useState(uuidv4());
 
-  const { isXs } = useBreakpoints()
+  const { isXs } = useBreakpoints();
+  console.log('queryRecieved', queryRecieved);
+  console.log('isXs', isXs);
 
   console.log('rsvpKey', rsvpKey);
   const resetRsvpForm = () => {
@@ -163,9 +165,9 @@ const IndexPage = (props) => {
 
 
       }
-      <div className="mainScroll">
-        <main>
+      {queryRecieved && <div className="mainScroll">
         
+        <main>
           <div className="houseBounds">
             <div className="gable"></div>
             <div className="gablePoint"></div>
@@ -177,7 +179,7 @@ const IndexPage = (props) => {
             </div>
           </div>
         </main>
-      </div>
+      </div>}
    </> 
   )
 }

@@ -1,4 +1,4 @@
-import useMediaQuery from "./useMediaQuery";
+import useMediaQuery, { queryRecieved } from "./useMediaQuery";
 
 /**
  * Get a set of boolean representing which breakpoint is active
@@ -20,3 +20,8 @@ export default function useBreakpoints() {
   if (breakpoints.isLg) breakpoints.active = "lg";
   return breakpoints;
 }
+
+const mediaQueryRecieved = () => {
+  return queryRecieved;
+}
+export { queryRecieved }
