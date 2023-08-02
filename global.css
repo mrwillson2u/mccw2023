@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Dalime';
+    /* font-weight: 100 900; */
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url(/fonts/Dalime.ttf) format("ttf");
+}
+@font-face {
+    font-family: 'SignPainter';
+    /* font-weight: 100 900; */
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url(/fonts/SignPainter-HouseScript.otf) format("otf");
+}
+@font-face {
+    font-family: 'Alegreya';
+    /* font-weight: 100 900; */
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url(/fonts/Alegreya-Regular.ttf) format("ttf");
+}

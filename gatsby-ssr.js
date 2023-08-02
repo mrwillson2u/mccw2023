@@ -12,7 +12,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
     <link
       rel="preload"
-      href="/fonts/SignPainter-HouseScript-01.otf"
+      href="/fonts/SignPainter-HouseScript.otf"
       as="font"
       type="font/otf"
       crossOrigin="anonymous"
