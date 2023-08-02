@@ -275,6 +275,9 @@ $gable-width-sm-screen: 61.25vw
 
         tr
             height: 14.28vw
+            border-right: $line-width-heavy solid black
+            @media (max-width: 640px)
+                border-right: $line-width-heavy-smscreen solid black
         .titleCell
             position: relative
             height: 10vw
@@ -343,11 +346,9 @@ $gable-width-sm-screen: 61.25vw
 
         tr:nth-child(3) td:last-child
             border: 0  
-
-        tr
-            border-right: $line-width-heavy solid black
-            @media (max-width: 640px)
-                border-right: $line-width-heavy-smscreen solid black
+        tr:nth-child(4) td:nth-child(3)
+            border-top: 0 
+            
         tr:first-child
             border-right: 0
 
