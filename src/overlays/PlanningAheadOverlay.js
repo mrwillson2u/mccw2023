@@ -8,7 +8,7 @@ import OverlayHeader from "../OverlayHeader"
 const PlanAheadOverlay = (props) => {
   
   return (
-    <>
+    <div className="scrollBox">
       <OverlayHeader>
         <h3>Planning Ahead</h3>
       </OverlayHeader>
@@ -141,7 +141,7 @@ const PlanAheadOverlay = (props) => {
           </ul>
         </ol>
       </div>
-    </>
+    </div>
   )
 }
 

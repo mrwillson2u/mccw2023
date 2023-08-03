@@ -7,7 +7,7 @@ import OverlayHeader from "../OverlayHeader"
 const FAQOverlay = (props) => {
   
   return (
-    <>
+    <div className="scrollBox">
       <OverlayHeader>
         <h3>FAQ</h3>
       </OverlayHeader>
@@ -97,7 +97,7 @@ const FAQOverlay = (props) => {
           Please feel free to text/call us or email us at mccw2023@gmail.com
         </p>
       </div>
-    </>
+    </div>
   )
 }
 

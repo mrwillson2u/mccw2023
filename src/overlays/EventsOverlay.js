@@ -7,7 +7,7 @@ import OverlayHeader from "../OverlayHeader"
 const EventsOverlay = (props) => {
   
   return (
-    <>
+    <div className="scrollBox">
       <OverlayHeader>
         <h3>Schedule of Events</h3>
       </OverlayHeader>
@@ -69,7 +69,7 @@ const EventsOverlay = (props) => {
         </p>
         
       </div>
-    </>
+    </div>
   )
 }
 
