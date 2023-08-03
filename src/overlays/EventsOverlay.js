@@ -4,56 +4,62 @@ import './EventsOverlay.sass'
 
 
 
-const UnderConstruction = (props) => {
+const EventsOverlay = (props) => {
   
   return (
     <div className="contentContainer">
-      <h3>FAQ</h3>
-      <h5>1. What time should I arrive to the ceremony?</h5>
+      <h3>Schedule of Events</h3>
+      
+      <h5>Welcome Party</h5>
+      <p><strong>Theme: </strong>Tailgate</p>
+      <p><strong>Attire: </strong>Casual</p>
+      <p><strong>Time: </strong>5:00 pm - 10:00 pm</p>
+      <p><strong>Location: </strong>Sonom Coast Villa</p>
       <p>
-        While the official wedding ceremony start time is 4pm, we recommend that guests arrive 15 minutes or so before.
+        We’re celebrating Maddie’s country farm roots by having a tailgate party! 
+        There will be a variety of fun games on the lawn for people to connect 
+        with new and old friends. Some of the games that will be played include 
+        cornhole, ladder toss, and horseshoes. The party starts at noon and goes 
+        until dark, so come on out and enjoy some good food, fun, and fellowship!
+      </p>
+
+      <h5>Ceremony</h5>
+      <p><strong>Attire: </strong>Be your best self!</p>
+      <p><strong>Time: </strong>TBD</p>
+      <p><strong>Location: </strong>Bodega Bay Trailhead</p>
+      <p>
+        We cordially invite you to join us for our exchange of vows, to be held on 
+        the beautiful rocky coast of California. The ceremony will take place just 
+        before sunset on a cliff, with the waves crashing against the shore in the 
+        background. We hope you can join us for this special day as we celebrate 
+        our love and commitment to each other.
+      </p>
+      <p>
+        The wedding will be an intimate affair with the people in our lives we feel helped us become who we are today
+      </p>
+
+      <h5>Reception</h5>
+      <p><strong>Attire: </strong>Be your best self!</p>
+      <p><strong>Time: </strong>TBD</p>
+      <p><strong>Location: </strong>Sonoma Coasy Villa</p>
+      <p>
+        All there is left to do at this point it is celebrate our wedding with food, 
+        dancing, and all you lovely people! We will have plenty of food and drinks, 
+        as well as a dance floor for those who want to get their groove on. We can't 
+        wait to see you there!
+      </p>
+
+      <h5>Farewell Brunch</h5>
+      <p><strong>Attire: </strong>Casual</p>
+      <p><strong>Time: </strong>8:00 am - 10:30 am</p>
+      <p><strong>Location: </strong>Sonoma Coast Villa</p>
+      <p>
+        As the festivities come to an end, come say goodbye and let us thank you for celebrating with us!
       </p>
       
-      <h5>2. What is the dress code?</h5>
-      <p>
-        As we exchange our vows against the backdrop of a breathtaking sunset, we ask guests to avoid gold attire. 
-      </p>
-      <p>
-        Embrace your inner Met Gala and don't be afraid to be EXTRA! Feel free to wear what makes you feel absolutely fabulous. We can't wait to see your unique styles shining as we celebrate together.
-      </p>
-      
-      <h5>3. Will the ceremony, cocktail hour, and reception take place indoors or outdoors?</h5>
-      <p>
-        All events will be held outdoors
-      </p>
-
-      <h5>4. What will the weather be like?</h5>
-      <p>
-        Expect it to be hot. The ceremony by the sea will be windy.
-      </p>
-
-      <h5>5. How do I get to the wedding venue? Will transportation be provided?</h5>
-      <p>
-        TBD
-      </p>
-
-      <h5>6. Is there parking available at the ceremony site (Bodega Bay Trailhead)?</h5>
-      <p>
-        Yes
-      </p>
-
-      <h5>7. Is there parking available at the reception site (Sonoma Coast Villa)?</h5>
-      <p>
-        There is limited parking available
-      </p>
-
-      <h5>8. Can I bring my kids?</h5>
-      <p>
-        ETo allow all of our guests the opportunity to relax and enjoy themselves, we have decided to make our wedding an adult-only weekend.
-      </p>
     </div>
   )
 }
 
-export default UnderConstruction
+export default EventsOverlay
 

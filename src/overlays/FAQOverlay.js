@@ -1,10 +1,10 @@
 import * as React from "react"
-import './EventsOverlay.sass'
+import './FAQOverlay.sass'
 
 
 
 
-const UnderConstruction = (props) => {
+const FAQOverlay = (props) => {
   
   return (
     <div className="contentContainer">
@@ -95,5 +95,5 @@ const UnderConstruction = (props) => {
   )
 }
 
-export default UnderConstruction
+export default FAQOverlay
 

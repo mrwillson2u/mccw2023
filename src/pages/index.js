@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
 import EventsOverlay from "../overlays/EventsOverlay"
 import FAQOverlay from "../overlays/FAQOverlay"
+import PlanningAheadOverlay from "../overlays/PlanningAheadOverlay"
 
 const useState = React.useState;
 
@@ -65,14 +66,16 @@ const IndexPage = (props) => {
                 >
                   <h3>Events</h3>
               </TdButton>
-              <TdButton>
+              <TdButton
+                navigateTo={'https://www.zola.com/registry/colinandmadelineoctober7'}
+              >
                   <h3>Registry</h3>
               </TdButton>
             </tr>
             <tr>
               <TdButton
                 colSpan="2"
-                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                activateOverlay={() => { activateOverlay(<PlanningAheadOverlay />) }}
               >
                 <h3>Planning Ahead</h3>
               </TdButton>
@@ -80,7 +83,7 @@ const IndexPage = (props) => {
             <tr>
             <TdButton
                 colSpan="2"
-                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                activateOverlay={() => { activateOverlay(<FAQOverlay />) }}
               >
                 <h3>FAQ</h3>
               </TdButton>
@@ -126,7 +129,7 @@ const IndexPage = (props) => {
                 <h3>Registry</h3>
               </TdButton>
               <TdButton
-                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                activateOverlay={() => { activateOverlay(<EventsOverlay />) }}
               >
                 <h3>Events</h3>
               </TdButton>
@@ -135,7 +138,7 @@ const IndexPage = (props) => {
             <tr>
               <TdButton
                 colSpan="2"
-                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                activateOverlay={() => { activateOverlay(<PlanningAheadOverlay />) }}
               >
                 <h3>Planning Ahead</h3>
               </TdButton>
