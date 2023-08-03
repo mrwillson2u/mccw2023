@@ -1,16 +1,16 @@
 @use 'sass:math'
-@font-face 
-    font-family: 'Dalime'
-    src: local('Dalime'), url('/fonts/Dalime.ttf') format('ttf')
+// @font-face 
+//     font-family: 'Dalime'
+//     src: url('/fonts/Dalime.ttf') format('ttf')
 
 
-@font-face 
-    font-family: 'SignPainter'
-    src: local('SignPainter'), url('/fonts/SignPainter-HouseScript.otf') format('otf')
+// @font-face 
+//     font-family: 'SignPainter'
+//     src: url('/fonts/SignPainter-HouseScript.otf') format('otf')
 
-@font-face 
-    font-family: 'Alegreya'
-    src: local('Alegreya'), url('/fonts/Alegreya-Regular.ttf') format('ttf')
+// @font-face 
+//     font-family: 'Alegreya'
+//     src: url('/fonts/Alegreya-Regular.ttf') format('ttf')
 
 *
     -webkit-box-sizing: content-box // Safari/Chrome, other WebKit 
@@ -38,13 +38,15 @@ main
     margin-top: 5vh
 
 h1 
-    font-family: 'Dalime'
-    font-size: 4.6875vw
-    font-weight: 10
+    font-family: 'Shippori Mincho'
+    font-size: 4.7vw
+    font-weight: 700
     text-align: right
+    line-height: 7vw
     margin: 0
     @media (max-width: 640px)
-        font-size: 6vw
+        font-size: 5.7vw
+        font-weight: 800
 
 .dateCell
     p 
@@ -56,10 +58,12 @@ h1
 h3 
     font-family: 'Alegreya'
     font-size: 3vw
+    font-weight: 700
     margin: 0
 
     @media (max-width: 640px)
-        font-size: 8vw
+        font-size:5vw
+        font-weight: 600
 
 
 
@@ -159,7 +163,7 @@ $gable-width-sm-screen: 61.25vw
     position: absolute
 
     // width: 100%
-    margin-top: -21vw
+    margin-top: -25vw
     right: 0
     // bottom: 0
 

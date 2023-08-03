@@ -6,6 +6,8 @@ import TdButton from "../TdButton"
 import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
+import EventsOverlay from "../overlays/EventsOverlay"
+import FAQOverlay from "../overlays/FAQOverlay"
 
 const useState = React.useState;
 
@@ -19,7 +21,7 @@ const IndexPage = (props) => {
   console.log('isXs', isXs);
 
   console.log('rsvpKey', rsvpKey);
-  const resetRsvpForm = () => {
+  const resetRsvpForm = () =>  {
     setRsvpKey(uuidv4());
   }
 
@@ -59,12 +61,12 @@ const IndexPage = (props) => {
             </tr>
             <tr>
             <TdButton
-                  activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+                  activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
                 >
                   <h3>Events</h3>
               </TdButton>
               <TdButton
-                  activateOverlay={() => { activateOverlay(<RSVPOverlay />) }}
+                  activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
                 >
                   <h3>Registry</h3>
               </TdButton>
@@ -140,7 +142,7 @@ const IndexPage = (props) => {
                 <h3>Planning Ahead</h3>
               </TdButton>
               <TdButton
-                activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                activateOverlay={() => { activateOverlay(<FAQOverlay />) }}
               >
                 <h3>FAQ</h3>
               </TdButton>
