@@ -2,6 +2,7 @@ import * as React from "react"
 import './index.sass'
 import './infoOverlay.sass'
 import CloseButton from "./CloseButton"
+import OverlayHeader from "./OverlayHeader"
 
 const InfoOverlay = (props) => {
 
