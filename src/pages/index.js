@@ -61,13 +61,11 @@ const IndexPage = (props) => {
             </tr>
             <tr>
             <TdButton
-                  activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
+                  activateOverlay={() => { activateOverlay(<EventsOverlay />) }}
                 >
                   <h3>Events</h3>
               </TdButton>
-              <TdButton
-                  activateOverlay={() => { activateOverlay(<UnderConstruction />) }}
-                >
+              <TdButton>
                   <h3>Registry</h3>
               </TdButton>
             </tr>
