@@ -1,7 +1,7 @@
 import * as React from "react"
 import './PlanningAheadOverlay.sass'
 import OverlayHeader from "../OverlayHeader"
-
+import Drawer from "../Drawer"
 
 
 
@@ -21,7 +21,6 @@ const PlanAheadOverlay = (props) => {
         <ol>
 
         <h4><li>Venue Info</li></h4>
-          
           <p>
             Sonoma Coast Villa<br/>
             16702 Shoreline Highway<br/>
@@ -31,7 +30,7 @@ const PlanAheadOverlay = (props) => {
 
         <h4><li>Transportation</li></h4>
           <p>
-            <strong>Airport:</strong> The nearest major airport is San Francisco International Airport (SFO), located approximately 70 miles from Bodega Bay. Alternatively, Oakland International Airport (OAK) and Sonoma County Airport (STS) are other options, both around 80 miles away.
+            <strong>Airports:</strong> The nearest major airport is San Francisco International Airport (SFO), located approximately 70 miles from Bodega Bay. Alternatively, Oakland International Airport (OAK) and Sonoma County Airport (STS) are other options, both around 80 miles away.
           </p>
           <p>
             <strong>Car Rental:</strong> Renting a car is recommended for ease of travel and exploring the picturesque surrounding areas.
@@ -46,52 +45,60 @@ const PlanAheadOverlay = (props) => {
           <p>Important Note:</p>
           <p>Please be aware that the signal may be poor or intermittent in the valley and surrounding areas. It is advisable to download offline maps or GPS directions before heading to Sonoma Coast Villa to ensure a smooth journey.</p>
 
-          <h4>San Francisco International Airport (SFO) to Sonoma Coast Villa:</h4>
-          <p>The drive may take around 2 hours, depending on traffic and weather conditions.</p>
-          <ol>
-            <li>Head north on US-101 N from the airport.</li>
-            <li>Follow US-101 N for approximately 65 miles.</li>
-            <li>Take exit 476B to merge onto CA-12 W toward Sebastopol/Sonoma.</li>
-            <li>Continue on CA-12 W for approximately 11 miles.</li>
-            <li>Turn right onto CA-1 N/Valley Ford Road.</li>
-            <li>Drive for about 8 miles, then turn left onto Bodega Highway.</li>
-            <li>After about 1.5 miles, turn right onto Bohemian Highway.</li>
-            <li>Drive on Bohemian Highway for approximately 6 miles.</li>
-            <li>Turn right onto Coleman Valley Road.</li>
-            <li>Sonoma Coast Villa will be on your left after about 2 miles.</li>
-          </ol>
-          <h4>Oakland International Airport (OAK) to Sonoma Coast Villa:</h4>
-          
-          <p>The drive may take around 1.5 to 2 hours, depending on traffic and weather conditions.</p>
-          <ol>
-            <li>Merge onto I-880 N via the ramp to Downtown Oakland.</li>
-            <li>Follow I-880 N for approximately 23 miles.</li>
-            <li>Take exit 31B to merge onto I-580 W toward San Rafael.</li>
-            <li>Continue on I-580 W for about 11 miles.</li>
-            <li>Take exit 19A for CA-37 W toward Napa.</li>
-            <li>Merge onto CA-37 W and continue for approximately 9 miles.</li>
-            <li>Take the exit toward Petaluma/Sonoma.</li>
-            <li>Merge onto Lakeville Hwy/CA-116 W.</li>
-            <li>Follow CA-116 W for about 15 miles, then turn right onto CA-1 N/Valley Ford Road.</li>
-            <li>Drive for about 8 miles, then turn left onto Bodega Highway.</li>
-            <li>After about 1.5 miles, turn right onto Bohemian Highway.</li>
-            <li>Drive on Bohemian Highway for approximately 6 miles.</li>
-            <li>Turn right onto Coleman Valley Road.</li>
-            <li>Sonoma Coast Villa will be on your left after about 2 miles.</li>
-          </ol>
-          <h4>Sonoma County Airport (STS) to Sonoma Coast Villa:</h4>
-          <p>The drive may take around 30 to 40 minutes, depending on traffic and weather conditions.</p>
-          <ol>
-            <li>As you exit Sonoma County Airport, turn left onto Airport Blvd.</li>
-            <li>Continue on Airport Blvd for about 1.5 miles.</li>
-            <li>Turn right onto River Rd.</li>
-            <li>Follow River Rd for approximately 10 miles.</li>
-            <li>Turn left onto CA-116 W/Gravenstein Hwy S and continue for about 7 miles.</li>
-            <li>Merge onto CA-1 S toward Bodega Bay.</li>
-            <li>Drive on CA-1 S for about 9 miles.</li>
-            <li>Turn right onto Coleman Valley Road.</li>
-            <li>Sonoma Coast Villa will be on your right after about 2 miles.</li>
-          </ol>
+          <Drawer
+            headerText="San Francisco International Airport (SFO) to Sonoma Coast Villa:"
+          >
+            <p>The drive may take around 2 hours, depending on traffic and weather conditions.</p>
+            <ol>
+              <li>Head north on US-101 N from the airport.</li>
+              <li>Follow US-101 N for approximately 65 miles.</li>
+              <li>Take exit 476B to merge onto CA-12 W toward Sebastopol/Sonoma.</li>
+              <li>Continue on CA-12 W for approximately 11 miles.</li>
+              <li>Turn right onto CA-1 N/Valley Ford Road.</li>
+              <li>Drive for about 8 miles, then turn left onto Bodega Highway.</li>
+              <li>After about 1.5 miles, turn right onto Bohemian Highway.</li>
+              <li>Drive on Bohemian Highway for approximately 6 miles.</li>
+              <li>Turn right onto Coleman Valley Road.</li>
+              <li>Sonoma Coast Villa will be on your left after about 2 miles.</li>
+            </ol>
+          </Drawer>
+          <Drawer
+            headerText="Oakland International Airport (OAK) to Sonoma Coast Villa:"
+          >          
+            <p>The drive may take around 1.5 to 2 hours, depending on traffic and weather conditions.</p>
+            <ol>
+              <li>Merge onto I-880 N via the ramp to Downtown Oakland.</li>
+              <li>Follow I-880 N for approximately 23 miles.</li>
+              <li>Take exit 31B to merge onto I-580 W toward San Rafael.</li>
+              <li>Continue on I-580 W for about 11 miles.</li>
+              <li>Take exit 19A for CA-37 W toward Napa.</li>
+              <li>Merge onto CA-37 W and continue for approximately 9 miles.</li>
+              <li>Take the exit toward Petaluma/Sonoma.</li>
+              <li>Merge onto Lakeville Hwy/CA-116 W.</li>
+              <li>Follow CA-116 W for about 15 miles, then turn right onto CA-1 N/Valley Ford Road.</li>
+              <li>Drive for about 8 miles, then turn left onto Bodega Highway.</li>
+              <li>After about 1.5 miles, turn right onto Bohemian Highway.</li>
+              <li>Drive on Bohemian Highway for approximately 6 miles.</li>
+              <li>Turn right onto Coleman Valley Road.</li>
+              <li>Sonoma Coast Villa will be on your left after about 2 miles.</li>
+            </ol>
+          </Drawer>
+          <Drawer
+            headerText="Sonoma County Airport (STS) to Sonoma Coast Villa:"
+          >
+            <p>The drive may take around 30 to 40 minutes, depending on traffic and weather conditions.</p>
+            <ol>
+              <li>As you exit Sonoma County Airport, turn left onto Airport Blvd.</li>
+              <li>Continue on Airport Blvd for about 1.5 miles.</li>
+              <li>Turn right onto River Rd.</li>
+              <li>Follow River Rd for approximately 10 miles.</li>
+              <li>Turn left onto CA-116 W/Gravenstein Hwy S and continue for about 7 miles.</li>
+              <li>Merge onto CA-1 S toward Bodega Bay.</li>
+              <li>Drive on CA-1 S for about 9 miles.</li>
+              <li>Turn right onto Coleman Valley Road.</li>
+              <li>Sonoma Coast Villa will be on your right after about 2 miles.</li>
+            </ol>
+          </Drawer>
 
           <h4><li>Accommodations:</li></h4>
           <p>Bodega Bay offers various accommodations to suit your preferences:</p>
@@ -114,7 +121,7 @@ const PlanAheadOverlay = (props) => {
           <p><strong>Hidden Gem:</strong> Bodega Dunes Beach Trail is a lesser-known hiking trail that winds through the dunes and leads to the shoreline. Enjoy the serene walk amidst coastal flora and wildlife.</p>
 
           <h4>Outdoor Adventures:</h4>
-          <p><strong>Local Recommendation:</strong> Take a guided horseback-riding tour to explore the scenic hills of Northern California at the pinnacle of harvest. We recommend XXX</p>
+          <p><strong>Local Recommendation:</strong> Take a guided horseback-riding tour to explore the scenic hills of Northern California at the pinnacle of harvest.</p>
           <p><strong>Hidden Gem:</strong> Pomo Canyon Trail is a lesser-explored trail, boasting picturesque coastal views and a beautiful forested section. Keep an eye out for deer and other wildlife.</p>
 
           <h4>Local Charm:</h4>
