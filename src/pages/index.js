@@ -7,8 +7,9 @@ import RSVPOverlay from "../overlays/RSVPOverlay"
 import { v4 as uuidv4 } from 'uuid';
 import UnderConstruction from "../overlays/UnderConstruction"
 import EventsOverlay from "../overlays/EventsOverlay"
-import FAQOverlay from "../overlays/FAQOverlay"
 import PlanningAheadOverlay from "../overlays/PlanningAheadOverlay"
+import FAQOverlay from "../overlays/FAQOverlay"
+
 
 const useState = React.useState;
 
