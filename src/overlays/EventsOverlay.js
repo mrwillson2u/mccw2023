@@ -23,8 +23,7 @@ const EventsOverlay = (props) => {
         <p>
           We’re having a tailgate party! There will be a variety of fun games on the lawn for people to connect 
           with new and old friends. Some of the games that will be played include 
-          cornhole, ladder toss, and horseshoes. The party starts at noon and goes 
-          until dark, so come on out and enjoy some good food, fun, and fellowship!
+          cornhole, ladder toss, and horseshoes. Some on out and enjoy some good food, fun, and fellowship!
         </p>
 
         <h4>Ceremony</h4>
