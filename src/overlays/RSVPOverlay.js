@@ -406,7 +406,7 @@ const RSVPOverlay = (props) => {
         output = (
           <form onSubmit={handleFormSubmit}>
             <p className="rsvpInstructions">
-              Great, we have your invitation info here. Can you indicate whether the guest/guests are attending? If necessary, please edit the names as they should appear om the seating card.
+              Great, we have your invitation info here. Please indicate whether the guest/guests are attending.
               {/* Please add an email for one or more guests so that we can send updates and info as the big day gets closer! */}
             </p>
             {

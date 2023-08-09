@@ -115,7 +115,7 @@ const PlanAheadOverlay = (props) => {
       
           {/* <h4>Overview:</h4> */}
           <p>Welcome to the scenic coastal town of Bodega Bay, California! This picturesque town offers a perfect weekend getaway with stunning ocean views, serene landscapes, and a charming coastal vibe. Explore the natural beauty, indulge in fresh seafood, and discover local wines that make Bodega Bay an ideal retreat. Pack your bags and get ready for a memorable weekend of celebrating in October!</p>
-
+          
           <h4>Coastal Exploration:</h4>
           <p><strong>Local Recommendation:</strong> Head to Goat Rock Beach for an off-the-beaten-path coastal adventure. Marvel at the enormous rock formations and keep an eye out for playful harbor seals.</p>
           <p><strong>Hidden Gem:</strong> Bodega Dunes Beach Trail is a lesser-known hiking trail that winds through the dunes and leads to the shoreline. Enjoy the serene walk amidst coastal flora and wildlife.</p>

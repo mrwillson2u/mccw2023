@@ -21,8 +21,7 @@ const EventsOverlay = (props) => {
           <strong>Location: </strong>Sonom Coast Villa
           </p>
         <p>
-          We’re celebrating Maddie’s country farm roots by having a tailgate party! 
-          There will be a variety of fun games on the lawn for people to connect 
+          We’re having a tailgate party! There will be a variety of fun games on the lawn for people to connect 
           with new and old friends. Some of the games that will be played include 
           cornhole, ladder toss, and horseshoes. The party starts at noon and goes 
           until dark, so come on out and enjoy some good food, fun, and fellowship!
@@ -31,7 +30,7 @@ const EventsOverlay = (props) => {
         <h4>Ceremony</h4>
         <p>
           <strong>Attire: </strong>Be your best self!<br/>
-          <strong>Time: </strong>TBD<br/>
+          <strong>Time: </strong>3:30pm<br/>
           <strong>Location: </strong>Bodega Bay Trailhead
         </p>
         <p>
