@@ -15,15 +15,19 @@ const EventsOverlay = (props) => {
       <div className="contentContainer">
         <h4>Welcome Party</h4>
         <p>
-          <strong>Theme: </strong>Tailgate<br/>
+          <strong>Theme: </strong>Welcome Tailgate<br/>
           <strong>Attire: </strong>Casual<br/>
           <strong>Time: </strong>5:00 pm - 10:00 pm<br/>
           <strong>Location: </strong>Sonom Coast Villa
           </p>
         <p>
-          We’re having a tailgate party! There will be a variety of fun games on the lawn for people to connect 
-          with new and old friends. Some of the games that will be played include 
-          cornhole, ladder toss, and horseshoes. Some on out and enjoy some good food, fun, and fellowship!
+          It’s 5’oclock somewhere, so let's kick off the wedding weekend with a 
+          laid-back tailgate! Bring your appetite for a delightful dinner and your 
+          playfulness for lighthearted competition. 
+        </p>
+        <p>
+          Be sure to wear comfortable shoes/sandals and we’ll put a drink in your 
+          hand. We can’t wait to see you there!
         </p>
 
         <h4>Ceremony</h4>
