@@ -22,8 +22,7 @@ const PlanAheadOverlay = (props) => {
 
           <h4><li>Ceremony Venue Info</li></h4>
             <p>
-              <strong>Ceremony Venue:</strong><br />
-              <br />
+              <strong>Location:</strong><br />
               Bodega Bay Trailhead<br />
               Bodega Bay, CA 94923<br />
               <br />
@@ -33,7 +32,7 @@ const PlanAheadOverlay = (props) => {
           <h4><li>Reception Venue Info</li></h4>
             <p>This will be the venue for all events besides the ceremony.</p>
             <p>
-              <br />
+              <strong>Address:</strong><br />
               Sonoma Coast Villa<br/>
               16702 Shoreline Highway<br/>
               Bodega, California 94922<br/>
