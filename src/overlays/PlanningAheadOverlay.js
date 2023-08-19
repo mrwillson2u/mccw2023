@@ -36,7 +36,7 @@ const PlanAheadOverlay = (props) => {
             <strong>Car Rental:</strong> Renting a car is recommended for ease of travel and exploring the picturesque surrounding areas.
           </p>
           <p>
-            <strong>Car Pool:</strong> 
+            <strong>Car Pool:</strong> Please note if you would like to carpool on your RSVP. Fewer vehicles on the road is always a good thing.
           </p>
           <p>
             <strong>Ground Transportation:</strong> Private shuttles and car services are available but not provided from the airports to Bodega Bay. You may also opt for ride-sharing services.
@@ -101,8 +101,15 @@ const PlanAheadOverlay = (props) => {
           </Drawer>
 
           <h4><li>Accommodations:</li></h4>
-          <p>Bodega Bay offers various accommodations to suit your preferences:</p>
-
+          <p>Bodega Bay offers various accommodations to suit your preferences, we recommend:</p> 
+            <p>
+              <strong>The Inn at the Tides</strong><br />
+               800 Highway 1<br />
+              Bodega Bay, California 94923<br />
+              707-876-9818<br />
+              <a href="www.innatthetides.com">www.innatthetides.com</a>
+            </p>
+            
 
           <h4><li>Weather:</li></h4>
           <p>In October, expect pleasant to warm temperatures with average highs around 65°F (18°C) and lows around 48°F (9°C). The sun is hot and the breeze is cold. Bring layers for cool evenings.</p>
@@ -129,7 +136,6 @@ const PlanAheadOverlay = (props) => {
             <p><strong>Local Recommendation:</strong> Take a guided horseback-riding tour to explore the scenic hills of Northern California at the pinnacle of harvest.</p>
             <p><strong>Hidden Gem:</strong> Pomo Canyon Trail is a lesser-explored trail, boasting picturesque coastal views and a beautiful forested section. Keep an eye out for deer and other wildlife.</p>
           </Drawer>
-          
           
           <Drawer
             headerText="Local Charm:"
