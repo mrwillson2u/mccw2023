@@ -26,7 +26,7 @@ const PlanAheadOverlay = (props) => {
             <br />
             Bodega Bay Trailhead<br />
             Bodega Bay, CA 94923<br />
-
+            <br />
             <strong>Note:</strong> This location doesn’t have an address. Google it by name or <a href="https://goo.gl/maps/ng5Pnfi4M41fmk3L6">click here</a>
           </p>
           <p>
