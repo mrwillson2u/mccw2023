@@ -39,7 +39,7 @@ const PlanAheadOverlay = (props) => {
             <strong>Car Pool:</strong> Please note if you would like to carpool on your RSVP. Fewer vehicles on the road is always a good thing.
           </p>
           <p>
-            <strong>Ground Transportation:</strong> Private shuttles and car services are available but not provided from the airports to Bodega Bay. You may also opt for ride-sharing services.
+            <strong>Car Share:</strong> Lyfts/Ubers can be hard to come by if available at all within Bodega Bay. Please plan for extra time if hailing a carshare.
           </p>
           <h4>Airport to Venue Driving Instructions:</h4>
           <p>Important Note:</p>
