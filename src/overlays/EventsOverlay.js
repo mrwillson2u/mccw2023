@@ -36,15 +36,15 @@ const EventsOverlay = (props) => {
           <strong>Location: </strong>Bodega Bay Trailhead
         </p>
         <p>
-          We cordially invite you to join us for our exchange of vows, to be held on 
-          the beautiful rocky coast of California. The ceremony will take place just 
-          before sunset on a cliff, with the waves crashing against the shore in the 
-          background. We hope you can join us for this special day as we celebrate 
-          our love and commitment to each other.
+          We joyfully invite you to join us for our exchange of vows overlooking the 
+          beautiful rocky coast of California. We hope to share our commitment to each 
+          other with the people in our lives who have contributed to who we are today.
+          Please join us for this special day as we celebrate our love and promise to 
+          each other.<br />
+
+          The ceremony will take place just before sunset at the Bodega Bay Trailhead.
+          Please see the FAQ section for attire and helpful notes.
         </p>
-        {/* <p>
-          The wedding will be an intimate affair with the people in our lives we feel helped us become who we are today
-        </p> */}
 
         <h4>Reception</h4>
         <p>
