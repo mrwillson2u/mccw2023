@@ -26,7 +26,7 @@ const PlanAheadOverlay = (props) => {
               Bodega Bay Trailhead<br />
               Bodega Bay, CA 94923<br />
               <br />
-              <strong>Note:</strong> This location doesn’t have an address. You can route directions on a smart device by searchinng "Bodega Bay Trailhead" or by <a href="https://goo.gl/maps/ng5Pnfi4M41fmk3L6">clicking here</a>.
+              <strong>Note:</strong> This location doesn’t have an address. You can route directions on a smart device by searchinng "Bodega Bay Trailhead" or by <a href="https://goo.gl/maps/ng5Pnfi4M41fmk3L6">clicking here for Google Maps</a>.
             </p>
 
           <h4><li>Reception Venue Info</li></h4>
