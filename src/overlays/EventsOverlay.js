@@ -15,10 +15,9 @@ const EventsOverlay = (props) => {
       <div className="contentContainer">
         <h4>Welcome Party</h4>
         <p>
-          <strong>Theme: </strong>Welcome Tailgate<br/>
           <strong>Attire: </strong>Casual<br/>
           <strong>Time: </strong>5:00 pm - 10:00 pm<br/>
-          <strong>Location: </strong>Sonom Coast Villa
+          <strong>Location: </strong>Sonoma Coast Villa
           </p>
         <p>
           It’s 5’oclock somewhere, so let's kick off the wedding weekend with a 
@@ -32,7 +31,7 @@ const EventsOverlay = (props) => {
 
         <h4>Ceremony</h4>
         <p>
-          <strong>Attire: </strong>Be your best self!<br/>
+          <strong>Attire: </strong>Feel Fabulous!<br/>
           <strong>Time: </strong>3:30pm<br/>
           <strong>Location: </strong>Bodega Bay Trailhead
         </p>
@@ -43,15 +42,14 @@ const EventsOverlay = (props) => {
           background. We hope you can join us for this special day as we celebrate 
           our love and commitment to each other.
         </p>
-        <p>
+        {/* <p>
           The wedding will be an intimate affair with the people in our lives we feel helped us become who we are today
-        </p>
+        </p> */}
 
         <h4>Reception</h4>
         <p>
-          <strong>Attire: </strong>Be your best self!<br/>
-          <strong>Time: </strong>TBD<br/>
-          <strong>Location: </strong>Sonoma Coasy Villa
+          <strong>Time: </strong>5:00pm<br/>
+          <strong>Location: </strong>Sonoma Coast Villa
           </p>
         <p>
           All there is left to do at this point it is celebrate our wedding with food, 

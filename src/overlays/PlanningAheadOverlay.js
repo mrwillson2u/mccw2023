@@ -36,7 +36,7 @@ const PlanAheadOverlay = (props) => {
             <strong>Car Rental:</strong> Renting a car is recommended for ease of travel and exploring the picturesque surrounding areas.
           </p>
           <p>
-            <strong>Car Pool:</strong> TBD
+            <strong>Car Pool:</strong> 
           </p>
           <p>
             <strong>Ground Transportation:</strong> Private shuttles and car services are available but not provided from the airports to Bodega Bay. You may also opt for ride-sharing services.
@@ -116,24 +116,35 @@ const PlanAheadOverlay = (props) => {
           {/* <h4>Overview:</h4> */}
           <p>Welcome to the scenic coastal town of Bodega Bay, California! This picturesque town offers a perfect weekend getaway with stunning ocean views, serene landscapes, and a charming coastal vibe. Explore the natural beauty, indulge in fresh seafood, and discover local wines that make Bodega Bay an ideal retreat. Pack your bags and get ready for a memorable weekend of celebrating in October!</p>
           
-          <h4>Coastal Exploration:</h4>
-          <p><strong>Local Recommendation:</strong> Head to Goat Rock Beach for an off-the-beaten-path coastal adventure. Marvel at the enormous rock formations and keep an eye out for playful harbor seals.</p>
-          <p><strong>Hidden Gem:</strong> Bodega Dunes Beach Trail is a lesser-known hiking trail that winds through the dunes and leads to the shoreline. Enjoy the serene walk amidst coastal flora and wildlife.</p>
+          <Drawer
+            headerText="Coastal Exploration:"
+          >
+            <p><strong>Local Recommendation:</strong> Head to Goat Rock Beach for an off-the-beaten-path coastal adventure. Marvel at the enormous rock formations and keep an eye out for playful harbor seals.</p>
+            <p><strong>Hidden Gem:</strong> Bodega Dunes Beach Trail is a lesser-known hiking trail that winds through the dunes and leads to the shoreline. Enjoy the serene walk amidst coastal flora and wildlife.</p>
+          </Drawer>
 
-          <h4>Outdoor Adventures:</h4>
-          <p><strong>Local Recommendation:</strong> Take a guided horseback-riding tour to explore the scenic hills of Northern California at the pinnacle of harvest.</p>
-          <p><strong>Hidden Gem:</strong> Pomo Canyon Trail is a lesser-explored trail, boasting picturesque coastal views and a beautiful forested section. Keep an eye out for deer and other wildlife.</p>
+          <Drawer
+            headerText="Outdoor Adventures:"
+          >
+            <p><strong>Local Recommendation:</strong> Take a guided horseback-riding tour to explore the scenic hills of Northern California at the pinnacle of harvest.</p>
+            <p><strong>Hidden Gem:</strong> Pomo Canyon Trail is a lesser-explored trail, boasting picturesque coastal views and a beautiful forested section. Keep an eye out for deer and other wildlife.</p>
+          </Drawer>
+          
+          
+          <Drawer
+            headerText="Local Charm:"
+          >
+            <p><strong>Local Recommendation:</strong> Visit The Birds Cafe, a local outdoor cafe that shares a name with the famous Hitchcock film. The cafe offers stunning bay views alongside coffee and ice cream as well as oysters and beer. There is also a cute gift shop for any local souvenirs.</p>
+            <p><strong>Hidden Gem:</strong> Potter Schoolhouse is a must-visit for Hitchcock fans. While it doesn’t offer tours, visitors can take pictures from several angles and imagine the terrifying scene where screaming children ran from the schoolhouse down into the town while being attacked by angry crows. Also nearby, you can find Diekmann's Bay Store. This historic country store offers unique gifts and nostalgic charm.</p>
+          </Drawer>
 
-          <h4>Local Charm:</h4>
-
-          <p><strong>Local Recommendation:</strong> Visit The Birds Cafe, a local outdoor cafe that shares a name with the famous Hitchcock film. The cafe offers stunning bay views alongside coffee and ice cream as well as oysters and beer. There is also a cute gift shop for any local souvenirs.</p>
-          <p><strong>Hidden Gem:</strong> Potter Schoolhouse is a must-visit for Hitchcock fans. While it doesn’t offer tours, visitors can take pictures from several angles and imagine the terrifying scene where screaming children ran from the schoolhouse down into the town while being attacked by angry crows. Also nearby, you can find Diekmann's Bay Store. This historic country store offers unique gifts and nostalgic charm.</p>
-
-          <h4>Wine Tasting:</h4>
-
-          <p><strong>Local Recommendation:</strong> Plan a visit Sonoma Coast Vineyards for a wine tasting experience surrounded by rugged coastal landscape. Sip on elegant cool-climate wines.</p>
-          <p><strong>Hidden Gem:</strong> Take the day to visit Halleck Vineyard or Freeman Winery. Both are boutique wineries known for exceptional Pinot Noir and Chardonnay. Enjoy intimate tastings and stunning vineyard views. Both wineries require a reservation.</p>
-
+          <Drawer
+            headerText="Wine Tasting:"
+          >
+            <p><strong>Local Recommendation:</strong> Plan a visit Sonoma Coast Vineyards for a wine tasting experience surrounded by rugged coastal landscape. Sip on elegant cool-climate wines.</p>
+            <p><strong>Hidden Gem:</strong> Take the day to visit Halleck Vineyard or Freeman Winery. Both are boutique wineries known for exceptional Pinot Noir and Chardonnay. Enjoy intimate tastings and stunning vineyard views. Both wineries require a reservation.</p>
+          </Drawer>
+          
           <h4>Tip:</h4>
           <ul>
             <li>October is harvest season! Take in the rich color and energy before the cool weather hits. Wineries may be busier than usual because of this.</li>
