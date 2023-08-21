@@ -28,6 +28,11 @@ body
     left: 0
     margin: 0
 
+p
+    font-size: 1.5vw
+    @media (max-width: 640px)
+        font-size: 3vw
+
 main
     display: flex
     flex-direction: column
@@ -101,6 +106,9 @@ $gable-width-sm-screen: 61.25vw
     // margin: 0
     width: $gable-width
     height: $gable-width
+    // max-width: 627.812px
+    // max-height: 627.812px
+    
     @media (max-width: 640px)
         width: $gable-width-sm-screen
         height: $gable-width-sm-screen
@@ -241,6 +249,7 @@ $gable-width-sm-screen: 61.25vw
     flex-direction: column
     align-items: center
     width: 87.1vw
+    // max-width: 1024px
     margin-bottom: 20vw
     top: 3vw
     @media (max-width: 640px)
