@@ -363,7 +363,7 @@ const RSVPOverlay = (props) => {
               }}
             >
               <p className="rsvpInstructions">
-                To look up your invite, please enter the first and last name of an invitee as it appears on the envelope.
+                To look up your invite, please enter enter your first name.
               </p>
               <label>
                 Name:
