@@ -15,9 +15,9 @@ const EventsOverlay = (props) => {
       <div className="contentContainer">
         <h4>Welcome Party</h4>
         <p>
-          <strong>Attire: </strong>Casual<br/>
-          <strong>Time: </strong>5:00 pm - 10:00 pm<br/>
-          <strong>Location: </strong>Sonoma Coast Villa
+          <strong>Time: </strong>October 6 at 5:00 pm - 10:00 pm<br/>
+          <strong>Location: </strong>Sonoma Coast Villa<br/>
+          <strong>Attire: </strong>Casual
           </p>
         <p>
           It’s 5’oclock somewhere, so let's kick off the wedding weekend with a 
@@ -31,9 +31,9 @@ const EventsOverlay = (props) => {
 
         <h4>Ceremony</h4>
         <p>
-          <strong>Attire: </strong>Feel Fabulous!<br/>
-          <strong>Time: </strong>3:30pm<br/>
-          <strong>Location: </strong>Bodega Bay Trailhead
+          <strong>Time: </strong>October 7 at 3:30 pm<br/>
+          <strong>Location: </strong>Bodega Bay Trailhead<br/>
+          <strong>Attire: </strong>Feel Fabulous!
         </p>
         <p>
           We joyfully invite you to join us for our exchange of vows overlooking the 
@@ -48,7 +48,7 @@ const EventsOverlay = (props) => {
 
         <h4>Reception</h4>
         <p>
-          <strong>Time: </strong>5:00pm<br/>
+          <strong>Time: </strong>October 7 at 5:00pm<br/>
           <strong>Location: </strong>Sonoma Coast Villa
           </p>
         <p>
@@ -60,9 +60,9 @@ const EventsOverlay = (props) => {
 
         <h4>Farewell Brunch</h4>
         <p>
-          <strong>Attire: </strong>Casual<br/>
-          <strong>Time: </strong>8:00 am - 10:30 am<br/>
-          <strong>Location: </strong>Sonoma Coast Villa
+          <strong>Time: </strong>October 8 at 8:00 am - 10:30 am<br/>
+          <strong>Location: </strong>Sonoma Coast Villa<br/>
+          <strong>Attire: </strong>Casual
         </p>
         <p>
           As the festivities come to an end, come say goodbye and let us thank you for celebrating with us!
