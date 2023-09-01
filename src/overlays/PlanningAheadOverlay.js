@@ -39,7 +39,7 @@ const PlanAheadOverlay = (props) => {
               <strong>Note:</strong> Aside from the ceremony, all events will be held at Sonoma Coast Villa.
             </p>
 
-          <h4><li>Transportation</li></h4>
+          <h4><li>Airport Transportation</li></h4>
             <p>
               <strong>Airports:</strong> The nearest major airport is San Francisco International Airport (SFO), located approximately 70 miles from Bodega Bay. Alternatively, Oakland International Airport (OAK) and Sonoma County Airport (STS) are other options, both around 80 miles away.
             </p>
@@ -111,6 +111,16 @@ const PlanAheadOverlay = (props) => {
               </ol>
             </Drawer>
 
+          <h4><li>Wedding Shuttle Service</li></h4>
+            <p>
+              For your convenience and peace of mind, we're providing a wedding shuttle service. We strongly 
+              recommend taking advantage of this service so you can fully enjoy the celebration without any worries!<br/>
+              <br/>
+              Shuttles to the ceremony will begin at 2:30pm from The Inn at the Tides.<br/>
+              <br/>
+              Shuttles returning from the reception at Sonoma Coast Villa to The Inn at the Tides will run from 9 - 10:30pm.<br/>
+            </p>
+
           <h4><li>Accommodations:</li></h4>
             <p>Bodega Bay offers various accommodations to suit your preferences, we recommend:</p> 
               <p>
@@ -121,7 +131,6 @@ const PlanAheadOverlay = (props) => {
                 <a href="www.innatthetides.com">www.innatthetides.com</a>
               </p>
               
-
           <h4><li>Weather:</li></h4>
             <p>In October, expect pleasant to warm temperatures with average highs around 65°F (18°C) and lows around 48°F (9°C). The sun is hot and the breeze is cold. Bring layers for cool evenings.</p>
 

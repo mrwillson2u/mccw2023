@@ -33,6 +33,7 @@ const EventsOverlay = (props) => {
         <p>
           <strong>Time: </strong>October 7 at 3:30 pm<br/>
           <strong>Location: </strong>Bodega Bay Trailhead<br/>
+          <strong>Transportation: </strong>Shuttle<br/>
           <strong>Attire: </strong>Feel Fabulous!
         </p>
         <p>
@@ -50,6 +51,7 @@ const EventsOverlay = (props) => {
         <p>
           <strong>Time: </strong>October 7 at 5:00pm<br/>
           <strong>Location: </strong>Sonoma Coast Villa
+          <strong>Transportation: </strong>Shuttle<br/>
           </p>
         <p>
           All there is left to do at this point it is celebrate our wedding with food, 
