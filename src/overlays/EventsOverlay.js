@@ -50,7 +50,7 @@ const EventsOverlay = (props) => {
         <h4>Reception</h4>
         <p>
           <strong>Time: </strong>October 7 at 5:00pm<br/>
-          <strong>Location: </strong>Sonoma Coast Villa
+          <strong>Location: </strong>Sonoma Coast Villa<br/>
           <strong>Transportation: </strong>Shuttle<br/>
           </p>
         <p>
